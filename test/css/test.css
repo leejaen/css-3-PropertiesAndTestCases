@@ -1,0 +1,40 @@
+html {padding: 0; margin: 0;}
+body {font: 0.9em sans-serif; background: #EEE; margin: 0; padding: 25px 50px;}
+p {text-align: left;}
+#loadingtime {position: absolute;
+	top:30px;
+	left:30px;
+	padding: 2px;
+	border: 1px outset #AAA;
+	width:100%;
+	text-align: center;
+	font: bold 14px "andale mono", "bitstream vera sans mono", monospace;
+	color: black;
+	background-color: #E0E0E0;}
+#loadingtime2 {display: none;}
+
+a {color:#DD0000;}
+a:hover {color: black; background: #DD0000;}
+
+.inner {float: left;
+	width: 30%;
+	margin: 1%;
+	text-align: center;
+	border: 2px inset #FED;
+	background: #EEE;}
+
+.outer {float: left;
+	width: 45%;
+	margin: 1%;
+	padding: 0;
+	border: 3px outset #CBA;
+	background: #DDD;}
+
+.sup {position: relative;
+	top:-6px;
+	font: 0.6em "andale mono", "bitstream vera sans mono", monospace;}
+
+table{position: relative; left: -45px;}
+td,tr,th {border:1px solid #DDD;text-align: center; font-size: 8px;margin: 1px;}
+thead tr td, tfoot tr td {font-weight: bold}
+

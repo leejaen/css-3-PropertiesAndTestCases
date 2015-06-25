@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>CSS3 Transitions过渡事件响应webkitTransitionEnd</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:1.2em;
+	color:#FFF;
+
+
+}
+#outEffectDiv 
+{
+	width:300px;
+	height:200px;
+	line-height:200px;
+	position:relative;
+	-webkit-transition:left linear 1s;
+}
+#outEffectDiv a
+{
+	display:block;
+	width:50px;
+	height:50px;
+	background-color:rgba(255,0,0,0.9);
+	top:60px;
+	left:20px;
+	position:absolute;
+	-webkit-transition:left linear 1s;
+}
+#outEffectDiv a:focus,#outEffectDiv a:hover
+{
+	left:400px
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../TransitionsGuide.html">Trans</a><h1>CSS3 Transitions过渡事件响应 </h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>
+    事件webkitTransitionEnd</p>
+
+   <h2>实例</h2>
+    <pre contentEditable=false>
+        var timeOutId=0;
+        document.getElementById("move").addEventListener("webkitTransitionEnd",function()
+        {
+            document.getElementById("tip").innerHTML="过度结束 收到webkitTransitionEnd事件  当前事件对象为'"+event.target.id+"'"+"--时间:"+(new Date()).getTime();
+            
+            clearTimeout(timeOutId);
+            timeOutId=setTimeout(function(){document.getElementById("tip").innerHTML="&nbsp;"},4000);
+        },true);
+    </pre>
+    
+    <h2>效果预览</h2>
+    <div class="outEffect">
+    	<p id="tip">&nbsp;</p>
+        <div id="outEffectDiv">     
+			<a id="move" href="#"></a>
+        </div>	
+    </div>
+    
+</div>
+
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script type="text/javascript">
+var timeOutId=0;
+document.getElementById("move").addEventListener("webkitTransitionEnd",function()
+{
+	document.getElementById("tip").innerHTML="过度结束 收到webkitTransitionEnd事件  当前事件对象为'"+event.target.id+"'"+"--时间:"+(new Date()).getTime();
+	clearTimeout(timeOutId);
+	timeOutId=setTimeout(function(){document.getElementById("tip").innerHTML="&nbsp;"},4000);
+},true);
+
+
+</script>
+</html>

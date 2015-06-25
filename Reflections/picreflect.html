@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>带图片的遮罩的Reflections镜像</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:2.4em;
+	color:#FFF;
+
+
+}
+#outEffectDiv img
+{
+	-webkit-box-reflect:right 1px url(img/mask.png);
+}
+
+</style>
+</head>
+<body>
+<header><a class="index" href="../ReflectionsGuide.html">Reflect</a><h1>带图片的遮罩的Reflections镜像
+</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>box-reflect:none | direction offset mask-box-image
+    <h3>取值</h3>
+        <p> direction = above | below | left | right 倒影方向</p>
+        <p>offset = 长度值 | 百分比 图片与倒影间隔 </p>
+        <p>mask-box-image = none (无遮罩图像)| url(使用绝对或相对地址指定遮罩图像) | linear-gradient (使用线性渐变创建遮罩图像)| radial-gradient | repeating-linear-gradient(使用重复的线性渐变创建背遮罩像) | repeating-radial-gradient (使用重复的径向(放射性)渐变创建遮罩图像)</p>
+        <p>vertical：UserAgent提供单向垂直尺寸调整机制，让用户可以调节元素的高度。</p>
+        <p>inherit：默认继承;</p>
+        
+   <h2>实例</h2>
+    <pre contentEditable=false>
+	-webkit-box-reflect:right 1px url(img/mask.png);
+    </pre>
+    <h2>效果预览</h2>
+    <div class="outEffect">
+    <div id="outEffectDiv">
+    <img src="img/re01.jpg" width="300" height="200"/>
+    </div>	
+    </div>
+
+</div>
+
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

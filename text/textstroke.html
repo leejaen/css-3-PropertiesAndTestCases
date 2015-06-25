@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>text-stroke 文本描边</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:3.4em;
+	color:#FFF;
+
+}
+.outEffect div:first-of-type
+{
+	margin:20px;
+	padding:10px;
+	-webkit-text-stroke:1px #F00;
+	
+}
+#size
+{
+	display:inline-block;
+	width:20px;
+}
+
+</style>
+</head>
+<body>
+<header><a class="index" href="../TextGuide.html">TEXT</a><h1>text-stroke 文本描边
+</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>text-stroke:width || [color ]
+    <h3>子属性</h3>
+     <p> -webkit-text-stroke-width: width;</p>
+      <p> -webkit-text-stroke-color: color;</p>
+    <h3>备注</h3>
+        <p> -webkit-text-stroke: width color;</p>
+   <h2>实例</h2>
+    <pre contentEditable=false>
+    	-webkit-text-stroke:1px #F00;
+        -webkit-text-fill-color: white;  /*text-fill-color会覆盖color所定义的字体颜色：*/
+    </pre>
+    <h2>效果预览</h2>
+    <div class="outEffect">
+    <div id="outEffectDiv">text-stroke 文本描边</div>	
+    </div>
+   <p>描边大小:<span id="size">1</span> |0<input id="range" type="range" min="0" max="2" step="0.1" title="0.1">2 颜色<input id="color" type="color"></p>
+</div>
+
+<script type="text/javascript">
+window.addEventListener("load",function()
+{
+	var range=document.getElementById("range");
+	range.onchange=function()
+	{
+		this.title=this.value;
+		var div=document.getElementById("outEffectDiv");
+		div.style.webkitTextStrokeWidth=this.value+"px";
+		document.getElementById("size").innerHTML=this.value;
+	};
+	
+	var color=document.getElementById("color");
+	color.onchange=function()
+	{
+		var div=document.getElementById("outEffectDiv");
+		div.style.webkitTextStrokeColor=this.value;
+	};
+},false)
+</script>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--http://nontroppo.org/timer/jsspeed.html -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Javascript Speed Tests</title>
+
+    <script language="Javascript">
+        var autoTest;
+        if (window.localStorage.getItem("autoTest") == 3)
+        {
+            window.autoTest = true;
+            var loadTest = localStorage.getItem("jsTest");
+            if (loadTest)
+            {
+                //自动化测试次数  
+                if (loadTest.split(";").length > 7)
+                {
+                    window.localStorage.setItem("autoTest", 4);
+                    document.location.href = "divanim.html";
+
+                }
+            }
+        }
+
+        function AjaxObject()
+        {
+            this.createRequestObject = function ()
+            {
+                var ro;
+
+                ro = new XMLHttpRequest();
+
+                return ro;
+            }
+            this.sndReq = function (action, url)
+            {
+                this.http.open(action, url);
+                this.http.onreadystatechange = this.handleResponse;
+                this.http.send(null);
+            }
+            this.handleResponse = function ()
+            {
+                if (me.http.readyState == 4)
+                {
+                    var rawdata = me.http.responseText.split("|");
+                    for (var i = 0; i < rawdata.length; i++)
+                    {
+                        var item = (rawdata[i]).split("=>");
+                        if (item[0] != "")
+                        {
+                            document.getElementById(item[0]).innerHTML = item[1];
+                        }
+                    }
+                }
+            }
+            var me = this;
+            this.http = this.createRequestObject();
+        }
+
+        function RunTests()
+        {
+            document.getElementById('speed_total').innerHTML = "0";
+            TryCatch();
+            LayerMovement();
+            RandomNumbers();
+            MathEngine();
+            DOMSpeed();
+            ArrayFuncs();
+            StringFuncs();
+            AjaxDeclaration();
+
+            if (autoTest)
+            {
+                localStorage.setItem("jsTest", document.getElementById('speed_total').innerHTML + ";" + loadTest);
+                setTimeout(function ()
+                {
+                    location.reload(true);
+                }, 1000);
+            }
+        }
+
+        function TryCatch()
+        {
+            var startTime = new Date();
+            for (var i = 0; i <= 4000; i++)
+            {
+                try { throw new Error("Error"); } catch (e) { }
+            }
+            var endTime = new Date();
+            document.getElementById('speed_trycatch').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+
+        function LayerMovement()
+        {
+            var layer1 = document.getElementById('layer1');
+            var startTime = new Date();
+            for (var i = 0; i <= 8000; i++)
+            {
+                layer1.style.top = i + 'px';
+                layer1.style.left = i + 'px';
+            }
+            var endTime = new Date();
+            document.getElementById('speed_layer').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+
+        function RandomNumbers()
+        {
+            var startTime = new Date();
+            for (var i = 0; i <= 50000; i++)
+            {
+                var a = Math.random()
+            }
+            var endTime = new Date();
+            document.getElementById('speed_random').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+
+        function MathEngine()
+        {
+            var startTime = new Date();
+            for (var i = 0; i <= 5000; i++)
+            {
+                var a = Math.abs(-2.54);
+                var a = Math.acos(2);
+                var a = Math.asin(2);
+                var a = Math.atan(2);
+                var a = Math.atan2(2, 3, 4);
+                var a = Math.ceil(2.54);
+                var a = Math.cos(2);
+                var a = Math.exp(2);
+                var a = Math.floor(2.54);
+                var a = Math.log(2)
+                var a = Math.max(2, 3, 4);
+                var a = Math.min(2, 3, 4);
+                var a = Math.pow(2);
+                var a = Math.random;
+                var a = Math.round(2.54);
+                var a = Math.sin(2);
+                var a = Math.sqrt(2);
+                var a = Math.tan(2);
+            }
+            var endTime = new Date();
+            document.getElementById('speed_math').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+
+        function DOMSpeed()
+        {
+            var startTime = new Date();
+            for (var i = 0; i <= 1000; i++)
+            {
+                document.getElementById('speed_dom').innerHTML = "Testing... (" + i + "/1000)";
+            }
+            var endTime = new Date();
+            document.getElementById('speed_dom').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+
+        function ArrayFuncs()
+        {
+            var startTime = new Date();
+            var arr = new Array();
+            for (var i = 0; i <= 150; i++)
+            {
+                arr.push(i);
+                arr.sort();
+                arr.reverse();
+            }
+            var endTime = new Date();
+            document.getElementById('speed_array').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+
+        function StringFuncs()
+        {
+            var startTime = new Date();
+            var str = "hello";
+            for (var i = 0; i <= 1000; i++)
+            {
+                str += i
+                str.toLowerCase;
+                str.toUpperCase;
+                str = str.slice(str.length / 2, str.length) + str.slice(0, str.length / 2);
+            }
+            var endTime = new Date();
+            document.getElementById('speed_string').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+        function AjaxDeclaration()
+        {
+            var startTime = new Date();
+            for (var i = 0; i <= 1000; i++)
+            {
+                var ao_featured = new AjaxObject();
+            }
+            var endTime = new Date();
+            document.getElementById('speed_ajax').innerHTML = (endTime - startTime);
+            document.getElementById('speed_total').innerHTML = eval(document.getElementById('speed_total').innerHTML) + (endTime - startTime);
+        }
+
+
+        window.onload = function ()
+        {
+
+            if (autoTest)
+            {
+                document.getElementById("autoT").innerHTML = "自动测试中，请勿移动鼠标或按遥控器....";
+                setTimeout(function ()
+                {
+                    RunTests();
+                }, 1000);
+            }
+        }
+    </script>
+
+
+
+</head>
+<body style="margin-left: 40px; background-color: #FFF">
+    <h1>Javascript Speed Tests<span id="autoT" style="font-size: 16px; color: #F00"></span></h1>
+    <p></p>
+    <div id="layer1" style="position: absolute; top: 0px; left: 0px; width: 5px; height: 5px; background-color: #09C"></div>
+    <table width="434" class="gentbl">
+        <tbody>
+            <tr>
+                <td class="gentbl_title">Test Description&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td class="gentbl_title">Duration (ms)</td>
+            </tr>
+            <tr>
+                <td class="gentbl_body" colspan="2" align="center">
+                    <input type="button" onclick="RunTests();" value="Run Tests"></td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">Try/Catch with errors</td>
+                <td class="gentbl_body">
+                    <div id="speed_trycatch"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">Layer movement</td>
+                <td class="gentbl_body">
+                    <div id="speed_layer"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">Random number engine</td>
+                <td class="gentbl_body">
+                    <div id="speed_random"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">Math engine</td>
+                <td class="gentbl_body">
+                    <div id="speed_math"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">DOM speed</td>
+                <td class="gentbl_body">
+                    <div id="speed_dom"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">Array functions</td>
+                <td class="gentbl_body">
+                    <div id="speed_array"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">String functions</td>
+                <td class="gentbl_body">
+                    <div id="speed_string"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_body">Ajax declaration</td>
+                <td class="gentbl_body">
+                    <div id="speed_ajax"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="gentbl_title">Total Duration</td>
+                <td class="gentbl_title">
+                    <div id="speed_total" style="display: inline;"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p>
+        注：其他js测试网站：<a href="http://octane-benchmark.googlecode.com/svn/latest/index.html">Google octane</a>
+        <a href="http://www.webkit.org/perf/sunspider-0.9.1/sunspider-0.9.1/driver.html">SunSpider JavaScript Benchmark 测试</a>
+
+    </p>
+
+</body>
+</html>

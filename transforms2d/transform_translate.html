@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS3 webkit私有属性">
+    <meta name="description" content="css属性">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0">
+    <link href="../css/base.css" type="text/css" rel="stylesheet">
+    <title>CSS3 transform属性</title>
+    <style>
+        section { display: block; zoom: 1; margin-top: 10px; color: rgb(61, 70, 75);  font-size: 13px; }
+            section h2 { margin: 0px; padding: 0px 10px; font-size: 14px;  background-color: rgb(200, 200, 200);  }
+        .main { display: block; }
+            .main span { font-size: 1.2em; }
+            .main pre { padding: 10px; border: 1px #999 dashed; color: #666; font-size: 1.2em; resize: both; overflow: hidden; }
+        .stage {   width: 100%; height: 400px; font-size: 1.2em; color: #FFF; }
+        .actor { opacity: .8; pointer-events: none; border: 1px solid red; width: 200px; height: 100px; line-height: 100px; text-align: center; background-color: #ff0; color: #00f; font-size: 26px; position: relative; left: 500px; top: 100px; -webkit-transform: translate(-50px,-50px); float: left; padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="index" href="../transformGuide.html">transform</a><h1>CSS3 transform属性</h1>
+    </header>
+    <div class="main">
+        <section>
+            <h2>语法：</h2>
+            <p>
+                &nbsp;<strong style="font-weight: bold; color: rgb(102, 102, 102); font-family: georgia, serif; font-size: 13px; font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 22px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">transform</strong><span style="color: rgb(102, 102, 102); font-family: georgia, serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 22px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;">：none | matrix(&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;)? translate(&lt;length&gt;[,&lt;length&gt;])? translateX(&lt;length&gt;)? translateY(&lt;length&gt;)? 
+        rotate(&lt;angle&gt;)? scale(&lt;number&gt;[,&lt;number&gt;])? scaleX(&lt;number&gt;)? scaleY(&lt;number&gt;)? translate(&lt;angle&gt;[,&lt;angle&gt;])? translateX(&lt;angle&gt;) || translateY(&lt;angle&gt;)?</span>
+            </p>
+        </section>
+        <section>
+            <h2>默认值:none</h2>
+        </section>
+        <section id="value" class="gmodule gattr">
+            <h2 class="tit">取值：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <dl style="margin: 0px; padding: 0px; zoom: 1; overflow: hidden;">
+                    <dt style="clear: left; float: left; font-weight: bold;">none：</dt>
+                    <dd style="margin: 0px; padding: 0px;">无转换</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">matrix(&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">以一个含六值的(a,b,c,d,e,f)变换矩阵的形式指定一个2D变换，相当于直接应用一个[a,b,c,d,e,f]变换矩阵</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translate(&lt;length&gt;[, &lt;length&gt;])：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象的2D translation（2D平移）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translateX(&lt;length&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象X轴（水平方向）的平移</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translateY(&lt;length&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象Y轴（垂直方向）的平移</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">rotate(&lt;angle&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象的2D rotation（2D旋转），需先有transform-origin属性的定义</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">scale(&lt;number&gt;[, &lt;number&gt;])：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象的2D scale（2D缩放）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认取第一个参数的值</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">scaleX(&lt;number&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象X轴的（水平方向）缩放</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">scaleY(&lt;number&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象Y轴的（垂直方向）缩放</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translate(&lt;angle&gt; [, &lt;angle&gt;])：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象translate transformation（斜切扭曲）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translateX(&lt;angle&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象X轴的（水平方向）扭曲</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translateY(&lt;angle&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象Y轴的（垂直方向）扭曲</dd>
+                </dl>
+            </div>
+        </section>
+        <section>
+            <h2 class="tit" style="">说明：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <strong>设置或检索对象的转换。</strong><ul style="margin: 0px; padding: 0px; list-style: none;">
+                    <li>对应的脚本特性为<strong>transform</strong>。</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>实例：</h2>
+            <pre contenteditable="false">
+		-webkit-transform: translate(<span class="syncvalues">-50</span>px,<span class="syncvalues">-50</span>px);</pre>
+        </section>
+        <section>
+            <h2>操作：</h2>
+            <div style="text-align:center;">
+                <input id="steeringWheel" type="range" max="1000" min="-1000" step="1" value="-50" style="width: 100%" />
+                <span></span>
+            </div>
+        </section>
+        <section>
+            <h2>效果预览：</h2>
+            <div class="stage">
+                <div class="actor">双轴平移<span class="syncvalues">-50</span>px</div>
+            </div>
+        </section>
+    </div>
+    <footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script src="../test/javascript/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#steeringWheel").change(function ()
+        {
+            $(this).next("span").html("X轴、Y轴同时平移" + this.value + "像素");
+            $(".actor").css({ "-webkit-transform": "translate(" + this.value + "px," + this.value + "px)" });
+            $(".syncvalues").html(this.value);
+        });
+    });
+</script>
+</html>

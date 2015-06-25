@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>基本图片遮罩的平铺-webkit-mask-box-image</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:1.2em;
+	color:#FFF;
+
+
+}
+#outEffectDiv 
+{
+	width:300px;
+	height:200px;
+
+	background-color:#066;
+	cursor:default;
+}
+.mask
+{
+	-webkit-mask-image:url(img/maskrepeat.png);
+	-webkit-mask-position:30px 30px;
+	-webkit-mask-repeat:round;
+}
+.nomask
+{
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../maskGuide.html">mask</a><h1>基本图片遮罩的平铺-webkit-mask</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>-webkit-mask:attachment, clip, origin, image, repeat, composite, box-image;
+    <h2>说明</h2>
+    <h3>-webkit-mask也是一个复合属性，语法如下：</h3>
+		<p>-webkit-mask-attachment:  fixed | scroll 设置遮罩图片是否随页面滚动 fixed表示图片不随页面滚动，scroll则表示图片随页面滚动</P>
+        <p>-webkit-mask-clip:border | padding | content | text,设置剪切效果 </p>
+        <p>-webkit-mask-origin: padding |  border  | content 设置遮罩的位置 ，这个属性决定了mask的起点,
+        padding:mask的位置从元素padding的左上角开始，border:mask的位置从元素的border的左上角开始，content:mask的位置从元素的实际内容的左上角开始</p>
+        <p>-webkit-mask-image:url; 设置用于遮罩的图片</p>
+        <p>-webkit-mask-repeat:  stretch(默认) |  round  |  repeat 设置遮罩的方式</p>
+        <p>-webkit-mask-composite: border(默认)  |   padding 设置遮罩的混合模式  border:表示背景会延伸到边跨区域, padding:表示背景只会延伸到padding区域</p>
+  		<p>-webkit-mask-box-image：url top right bottom left x-repeat y-repeat该属性的作用有点像拼图的作用,url   表示使用的图片,top right bottom left分别表示的是针对url里图片的裁切位置，可以为像素（为像素时不能带px单位）和百
+分比，而且这个属性设置和平时设置的不一样，如果top right bottom left中没有设置值的就默认为0像素</p>
+		<p>-webkit-mask-position:  px|%  x,y坐标</p>
+   <h2>实例</h2>
+    <pre contentEditable=false>
+	-webkit-mask-image:url(img/maskrepeat.png);
+	-webkit-mask-position:30px 30px;
+	-webkit-mask-repeat:round;
+    </pre>
+    
+    <h2>效果预览</h2>
+    <div class="outEffect">
+    <P>背景色+div字(双击跟踪)<span id="follow"></span></P>
+        <div id="outEffectDiv" class="mask">     
+       基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-mask基本图片遮罩-webkit-ma
+        </div>	
+    </div>
+    <input id="check" type="checkbox" value="" checked><span class="light">打开蒙板</span>
+    <input id="checkOpen" type="checkbox" value="" ><span class="light">打开重复</span>
+    <input id="checkGif" type="checkbox" value="" ><span class="light">使用gif</span>
+    
+    
+    <p>遮罩图片</p>
+    <img src="img/maskrepeat.png">
+</div>
+
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script type="text/javascript">
+window.onload=function()
+{
+	document.getElementById("check").addEventListener("change",function()
+	{	
+		if(this.checked)
+		{
+			document.getElementById("outEffectDiv").className="mask";
+			document.getElementById("checkGif").checked=false;
+			
+		}
+		else
+		{
+			document.getElementById("outEffectDiv").className="";
+			document.getElementById("outEffectDiv").style.webkitMaskImage="";
+		}
+	},false);
+	
+	document.getElementById("checkGif").addEventListener("change",function()
+	{	
+		if(this.checked)
+		{
+			document.getElementById("outEffectDiv").style.webkitMaskImage="url(img/maskrepeat.gif)";
+		}
+		else
+		{
+			document.getElementById("outEffectDiv").style.webkitMaskImage="url(img/maskrepeat.png)";
+		}
+	},false);
+	document.getElementById("checkOpen").addEventListener("change",function()
+	{	
+		if(this.checked)
+		{
+			document.getElementById("outEffectDiv").style.webkitMaskRepeat="repeat";
+		}
+		else
+		{
+			document.getElementById("outEffectDiv").style.webkitMaskRepeat="round";
+		}
+	},false);
+	
+	document.getElementById("outEffectDiv").addEventListener("mousemove",function()
+	{
+		
+		if(!outEffectDiv)
+		{
+			return false;
+		}
+		var x=event.offsetX;
+		var y=event.offsetY;
+		document.getElementById("outEffectDiv").style.webkitMaskPosition=(x-30)+"px "+(y-30)+"px";
+	},true);
+	
+	
+	var outEffectDiv=true;
+	document.getElementById("outEffectDiv").addEventListener("dblclick",function()
+	{
+		
+		if(outEffectDiv)
+		{
+			document.getElementById("follow").innerHTML="未跟随";
+			outEffectDiv=false;
+		}
+		else
+		{
+			document.getElementById("follow").innerHTML="已跟随";
+			outEffectDiv=true;
+		}
+	},true);
+	
+}
+</script>
+</html>

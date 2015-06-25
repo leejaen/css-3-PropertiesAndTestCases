@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS3 webkit私有属性">
+    <meta name="description" content="css属性">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0">
+    <link href="../css/base.css" type="text/css" rel="stylesheet">
+    <title>CSS3 transform属性</title>
+    <style>
+        section { display: block; zoom: 1; margin-top: 10px; color: rgb(61, 70, 75); font-family: georgia, serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 22px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); }
+            section h2 { margin: 0px; padding: 0px 10px; font-size: 14px; font-style: normal; background-color: rgb(243, 243, 243); line-height: 2; background-position: initial initial; background-repeat: initial initial; }
+        .main { display: block; }
+            .main span { font-size: 1.2em; }
+            .main pre { padding: 10px; border: 1px #999 dashed; color: #666; font-size: 1.2em; resize: both; overflow: hidden; }
+        .stage {   width: 100%; height: 400px; font-size: 1.2em; color: #FFF; }
+        .actor { opacity: .8; pointer-events: none; border: 1px solid red; width: 200px; height: 100px; line-height: 100px; text-align: center; background-color: #ff0; color: #00f; font-size: 26px; position: relative; left: 500px; top: -400px; -webkit-transform: skew(0deg,0deg) translate(0px,0px) rotate(0deg) scale(1,1); float: left; padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="index" href="../transformGuide.html">transform</a><h1>CSS3 transform属性</h1>
+    </header>
+    <div class="main">
+        <section>
+            <h2>语法：</h2>
+            <p>
+                &nbsp;<strong style="font-weight: bold; color: rgb(102, 102, 102); font-family: georgia, serif; font-size: 13px; font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 22px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">transform</strong><span style="color: rgb(102, 102, 102); font-family: georgia, serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 22px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;">：none | matrix(&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;)? translate(&lt;length&gt;[,&lt;length&gt;])? translateX(&lt;length&gt;)? translateY(&lt;length&gt;)? 
+        rotate(&lt;angle&gt;)? scale(&lt;number&gt;[,&lt;number&gt;])? scaleX(&lt;number&gt;)? scaleY(&lt;number&gt;)? skew(&lt;angle&gt;[,&lt;angle&gt;])? skewX(&lt;angle&gt;) || skewY(&lt;angle&gt;)?</span>
+            </p>
+        </section>
+        <section>
+            <h2>默认值:none</h2>
+        </section>
+        <section id="value" class="gmodule gattr">
+            <h2 class="tit">取值：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <dl style="margin: 0px; padding: 0px; zoom: 1; overflow: hidden;">
+                    <dt style="clear: left; float: left; font-weight: bold;">none：</dt>
+                    <dd style="margin: 0px; padding: 0px;">无转换</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">matrix(&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">以一个含六值的(a,b,c,d,e,f)变换矩阵的形式指定一个2D变换，相当于直接应用一个[a,b,c,d,e,f]变换矩阵</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translate(&lt;length&gt;[, &lt;length&gt;])：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象的2D translation（2D平移）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translateX(&lt;length&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象X轴（水平方向）的平移</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">translateY(&lt;length&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象Y轴（垂直方向）的平移</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">rotate(&lt;angle&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象的2D rotation（2D旋转），需先有transform-origin属性的定义</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">scale(&lt;number&gt;[, &lt;number&gt;])：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象的2D scale（2D缩放）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认取第一个参数的值</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">scaleX(&lt;number&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象X轴的（水平方向）缩放</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">scaleY(&lt;number&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象Y轴的（垂直方向）缩放</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">skew(&lt;angle&gt; [, &lt;angle&gt;])：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象skew transformation（斜切扭曲）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">skewX(&lt;angle&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象X轴的（水平方向）扭曲</dd>
+                    <dt style="clear: left; float: left; font-weight: bold;">skewY(&lt;angle&gt;)：</dt>
+                    <dd style="margin: 0px; padding: 0px;">指定对象Y轴的（垂直方向）扭曲</dd>
+                </dl>
+            </div>
+        </section>
+        <section>
+            <h2 class="tit" style="">说明：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <strong>设置或检索对象的转换。</strong><ul style="margin: 0px; padding: 0px; list-style: none;">
+                    <li>对应的脚本特性为<strong>transform</strong>。</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>实例：</h2>
+            <pre contenteditable="false">-webkit-transform: skew(<span class="syncvalues_skewX">0</span>deg,<span class="syncvalues_skewY">0</span>deg) translate(<span class="syncvalues_translateX">0</span>px,<span class="syncvalues_translateY">0</span>px) rotate(<span class="syncvalues_translateY">0</span>deg) scale(<span class="syncvalues_rotate">1</span>,<span class="syncvalues_scaleY">1</span>);</pre>
+        </section>
+        <section>
+            <h2>操作：</h2>
+            <div style="text-align: center;">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 100px">skew X</td>
+                        <td>
+                            <input id="Range_skewX" type="range" max="360" min="-360" step="1" value="0" style="width: 100%" />
+                            <span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                        <td>skew Y</td>
+                        <td>
+                            <input id="Range_skewY" type="range" max="360" min="-360" step="1" value="0" style="width: 100%" />
+                            <span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                        <td>translate X</td>
+                        <td>
+                            <input id="Range_translateX" type="range" max="1000" min="-1000" step="1" value="0" style="width: 100%" />
+                            <span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                        <td>translate Y</td>
+                        <td>
+                            <input id="Range_translateY" type="range" max="1000" min="-1000" step="1" value="0" style="width: 100%" />
+                            <span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                        <td>scale X</td>
+                        <td>
+                            <input id="Range_scaleX" type="range" max="5" min="-5" step="0.1" value="1" style="width: 100%" />
+                            <span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                        <td>scale Y</td>
+                        <td>
+                            <input id="Range_scaleY" type="range" max="5" min="-5" step="0.1" value="1" style="width: 100%" />
+                            <span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                        <td>rotate</td>
+                        <td>
+                            <input id="Range_rotate" type="range" max="360" min="-360" step="1" value="0" style="width: 100%" />
+                            <span>&nbsp;</span></td>
+                    </tr>
+
+                </table>
+            </div>
+        </section>
+        <section>
+            <h2>效果预览：</h2>
+            <div class="stage">
+                <div class="actor">效果预览</div>
+            </div>
+        </section>
+    </div>
+    <footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script src="../test/javascript/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+    $(function ()
+    {
+        var syncvalues_skewX = 0, syncvalues_skewY = 0, syncvalues_translateX = 0, syncvalues_translateY = 0, syncvalues_scaleX = 1, syncvalues_scaleY = 1, syncvalues_rotate = 0;
+        $("#Range_skewX").change(function ()
+        {
+            $(this).next("span").html("X轴倾斜" + this.value + "度");
+            syncvalues_skewX = this.value;
+            setTransform();
+            $(".syncvalues_skewX").html(this.value);
+        });
+        $("#Range_skewY").change(function ()
+        {
+            $(this).next("span").html("Y轴倾斜" + this.value + "度");
+            syncvalues_skewY = this.value;
+            setTransform();
+            $(".syncvalues_skewY").html(this.value);
+        });
+        $("#Range_translateX").change(function ()
+        {
+            $(this).next("span").html("X轴平移" + this.value + "像素");
+            syncvalues_translateX = this.value;
+            setTransform();
+            $(".syncvalues_translateX").html(this.value);
+        });
+        $("#Range_translateY").change(function ()
+        {
+            $(this).next("span").html("Y轴平移" + this.value + "像素");
+            syncvalues_translateY = this.value;
+            setTransform();
+            $(".syncvalues_translateY").html(this.value);
+        });
+        $("#Range_scaleX").change(function ()
+        {
+            $(this).next("span").html("X轴缩放" + this.value + "倍");
+            syncvalues_scaleX = this.value;
+            setTransform();
+            $(".syncvalues_scaleX").html(this.value);
+        });
+        $("#Range_scaleY").change(function ()
+        {
+            $(this).next("span").html("Y轴缩放" + this.value + "倍");
+            syncvalues_scaleY = this.value;
+            setTransform();
+            $(".syncvalues_scaleY").html(this.value);
+        });
+        $("#Range_rotate").change(function ()
+        {
+            $(this).next("span").html("Y轴旋转" + this.value + "度");
+            syncvalues_rotate = this.value;
+            setTransform();
+            $(".syncvalues_rotate").html(this.value);
+        });
+        function setTransform()
+        {//skew(-10deg,-10deg) translate(-50px,-50px) rotate(30deg) scale(1.5,.5)
+            $(".actor").css({ "-webkit-transform": "skew(" + syncvalues_skewX + "deg," + syncvalues_skewY + "deg) translate(" + syncvalues_translateX + "px," + syncvalues_translateY + "px) rotate(" + syncvalues_rotate + "deg) scale(" + syncvalues_scaleX + "," + syncvalues_scaleY + ")" });
+        }
+    });
+</script>
+</html>

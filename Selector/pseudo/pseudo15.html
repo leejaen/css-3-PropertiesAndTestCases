@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../../css/base.css" type="text/css" rel="stylesheet"> 
+<title>E:first-line/E::first-line伪对象选择符</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../../SelectorGuide.html">Selector</a><h1>E:first-line/E::first-line伪对象选择符
+</h1></header>
+
+<div class="main">
+
+<h2>语法：</h2>
+<p>E:first-line/E::first-line{ sRules }</p>
+<h2>说明</h2>
+<p>设置对象内的第一行的样式。
+此伪对象仅作用于块对象。内联对象要使用该伪对象，必须先将其设置为块级对象。<br>
+
+CSS3将伪对象选择符(Pseudo-Element Selectors)前面的单个冒号(:)修改为双冒号(::)用以区别伪类选择符(Pseudo-Classes Selectors)，但以前的写法仍然有效。
+即E:first-letter可转化为E::first-letter
+</p>
+
+<h2>实例</h2>
+<pre contentEditable=false>
+    &lt;html&gt;<br>    &lt;head&gt;<br>    &lt;style type=&quot;text/css&quot;&gt;<br>   		 li{height:20px; line-height:20px; font-size:12px; list-style:none;color:#000}<br>    <br>    <br>		<b class="light">.a li::first-line{<br>			color:#F00;<br>		}</b><br>		<br>    &lt;/style&gt;<br>    &lt;/head&gt;<br>    &lt;body &gt;<br>    &lt;div class=&quot;demo&quot;&gt;<br>          &lt;ul class=&quot;a&quot;&gt;<br>               &lt;li&gt;第一行为红色&lt;br&gt;第二行黑色&lt;/li&gt;<br>          &lt;/ul&gt;    <br>    &lt;/div&gt;<br>    &lt;/body&gt;<br>    &lt;/html&gt;
+
+</pre>
+
+<h2>效果预览</h2>
+<div>
+    <html>
+    <head>
+    <style type="text/css">
+   		 li{height:20px; line-height:20px; font-size:12px; list-style:none; color:#000}
+    
+    
+		.a li::first-line{
+			color:#F00;
+		}
+		
+    </style>
+    </head>
+    <body>
+    <div class="demo">
+          <ul class="a">
+              <li>第一行为红色<br>第二行黑色</li>
+          </ul>    
+    </div>
+	</body>
+    </html>
+</div>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

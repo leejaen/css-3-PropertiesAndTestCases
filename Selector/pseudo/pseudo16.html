@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../../css/base.css" type="text/css" rel="stylesheet"> 
+<title>E:before/E::before伪对象选择符</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../../SelectorGuide.html">Selector</a><h1>E:before/E::before伪对象选择符
+</h1></header>
+
+<div class="main">
+
+<h2>语法：</h2>
+<p>E:before/E::before{ sRules }</p>
+<h2>说明</h2>
+<p>设置在对象前（依据对象树的逻辑结构）发生的内容。用来和content属性一起使用，
+默认地，这个伪元素是行内元素，不过可以使用属性 display 改变这一点<br>
+
+CSS3将伪对象选择符(Pseudo-Element Selectors)前面的单个冒号(:)修改为双冒号(::)用以区别伪类选择符(Pseudo-Classes Selectors)，但以前的写法仍然有效。
+</p>
+
+<h2>实例</h2>
+<pre contentEditable=false>    &lt;html&gt;<br>    &lt;head&gt;<br>    &lt;style type=&quot;text/css&quot;&gt;<br>   		 li{height:20px; line-height:20px; font-size:12px; list-style:none; color:#000}<br>    <br>    <br>	<b class="light">	.a li::before{<br>			color:#F00;<br>			content:&quot;css 添加的内容&quot;;<br>		}</b><br>		<br>    &lt;/style&gt;<br>    &lt;/head&gt;<br>    &lt;body&gt;<br>    &lt;div class=&quot;demo&quot;&gt;<br>          &lt;ul class=&quot;a&quot;&gt;<br>              &lt;li&gt;我是li标签&lt;/li&gt;<br>          &lt;/ul&gt;    <br>    &lt;/div&gt;<br>	&lt;/body&gt;<br>    &lt;/html&gt;
+
+
+</pre>
+
+<h2>效果预览</h2>
+<div>
+    <html>
+    <head>
+    <style type="text/css">
+   		 li{height:20px; line-height:20px; font-size:12px; list-style:none; color:#000}
+    
+    
+		.a li::before{
+			color:#F00;
+			content:"<CSS 添加的内容>";
+		}
+		
+    </style>
+    </head>
+    <body>
+    <div class="demo">
+          <ul class="a">
+              <li>我是li标签</li>
+          </ul>    
+    </div>
+	</body>
+    </html>
+</div>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

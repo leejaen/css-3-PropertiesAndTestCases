@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../../css/base.css" type="text/css" rel="stylesheet"> 
+<title>属性选择符 E[att="val"]</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../../SelectorGuide.html">Selector</a><h1>E[att~="val"]属性选择器
+</h1></header>
+
+<div class="main">
+
+<h2>语法：</h2>
+<p>E[att~="val"]{ sRules }</p>
+<h2>说明</h2>
+<p>选择具有att属性且属性值为一用空格分隔的字词列表，其中一个等于val的E元素。</p>
+
+<h2>实例</h2>
+<pre contentEditable=false>  
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+  <b class="light">  p[title~=&quot;ok&quot;] {background-color:#DCDCDC;}</b>
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;p title=&quot;&quot;&gt;含有title属性的p标签&lt;/p&gt;
+    &lt;p title=&quot;这是title&quot;&gt;含有title属性的p标签&lt;/p&gt;
+    &lt;p title=&quot;test ok&quot;&gt;含有title=test ok属性的p标签&lt;/p&gt;
+    &lt;p title=&quot;ok&quot;&gt;含有title=ok属性的p标签&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</pre>
+<h2>效果预览</h2>
+<div>
+  <html>
+  <head>
+  <style type="text/css">
+	  p[title~="ok"] {background-color:#DCDCDC;}
+  </style>
+  </head>
+  <body>
+      <p title="">含有title属性的p标签</p>
+      <p title="这是title">含有title属性的p标签</p>
+      <p title="test ok">含有title=test ok属性的p标签</p>
+  <p title="ok">含有title=ok属性的p标签</p>
+</div>
+</body>
+  </html>
+
+</div>
+
+</div>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

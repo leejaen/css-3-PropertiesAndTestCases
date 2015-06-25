@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+#score td
+{
+	font-size:18px;
+	border-bottom:1px #666666 solid;
+	border-left:1px #666666 solid;
+}
+#score
+{
+	display:none;
+	margin-left:30px;
+}
+#score thead td
+{
+	border-top:1px #666666 solid;
+	font-weight:800;
+}
+header h1
+{
+	font-size:1.8em;
+	text-shadow:none;
+	color:#000
+}

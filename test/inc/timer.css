@@ -1,0 +1,39 @@
+html {margin: 0; padding: 0;}
+
+body {text-align: center; margin: 0; padding: 50px 40px; font: 12px "bitstream vera sans", "Trebuchet MS", verdana, sans-serif; background: url("timer1.png") repeat;}
+
+#main {background: #eeeeee; border: 2px outset #cccccc; padding: 7px; width: 60em; margin: auto;}
+
+table {border: 1px outset #555; width: 90%; margin: auto; clear: both;}
+
+.pic, .picl {float: left; margin: 15px;}
+
+.picr {float: right; margin: 15px;}
+
+td,tr,th {border:1px solid #CCC;}
+
+p {text-align: justify;line-height: 1.7em;}
+
+thead, tfoot {font-weight: bold}
+
+#loadingtime {position: absolute; z-index: 100;
+	top:40px; right: 60px;border: 2px outset #BBAA99; padding: 2px;
+	text-align: center;
+	font: 14px "andale mono", "bitstream vera sans mono", "courier new", monospace;
+	color: black; background-color: #EEE;}
+
+.inner {float: left;
+	width: 30%;margin: 1%;
+	text-align: center;
+	border: 2px inset #FED; background: #EEE;}
+
+.outer {float: left;
+	width: 45%;	margin: 1%;padding: 0;
+	border: 3px outset #CBA;
+	background: #DDD;}
+
+.sup {position: relative;
+	top:-6px;
+	font: 0.7em "bitstream vera sans mono", "courier new", monospace;}
+
+.clear {clear: both;}

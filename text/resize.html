@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>text-stroke 文本描边</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:3.4em;
+	color:#FFF;
+
+}
+.outEffect div:first-of-type
+{
+	margin:20px;
+	padding:10px;
+	width:200px;
+	resize:both;
+	overflow:auto;
+	background-color:#0CF;
+	
+}
+#size
+{
+	display:inline-block;
+	width:20px;
+}
+
+</style>
+</head>
+<body>
+<header><a class="index" href="../TextGuide.html">TEXT</a><h1>resize: both
+</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>resize ： none | both | horizontal | vertical | inherit
+    <h3>取值</h3>
+        <p> none：UserAgent没提供尺寸调整机制，用户不能操纵机制调节元素的尺寸。</p>
+        <p>both：UserAgent提供双向尺寸调整机制，让用户可以调节元素的宽度和高度。</p>
+        <p>horizontal：UserAgent提供单向水平尺寸调整机制，让用户可以调节元素的宽度。</p>
+        <p>vertical：UserAgent提供单向垂直尺寸调整机制，让用户可以调节元素的高度。</p>
+        <p>inherit：默认继承;</p>
+   <h2>实例</h2>
+    <pre contentEditable=false>
+    	resize:both;
+        overflow:auto;
+    </pre>
+    <h2>效果预览</h2>
+    <div class="outEffect">
+    <div id="outEffectDiv">仔细看右下角有滑动块</div>	
+    </div>
+
+</div>
+
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

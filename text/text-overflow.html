@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>text-overflow文本溢出</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:3.4em;
+	color:#FFF;
+
+}
+.outEffect div:first-of-type
+{
+
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	resize:horizontal;
+	
+}
+.outEffect div
+{
+	margin:20px;
+	padding:10px;
+	width:150px;
+	white-space:nowrap;
+}
+#size
+{
+	display:inline-block;
+	width:20px;
+}
+
+</style>
+</head>
+<body>
+<header><a class="index" href="../TextGuide.html">TEXT</a><h1>text-overflow文本溢出
+</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>text-overflow : clip | ellipsis
+    <h3>备注</h3>
+        <p>要实现溢出时产生省略号的效果还须定义：强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果。</p>
+   <h2>实例</h2>
+    <pre contentEditable=false>
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    </pre>
+    <h2>效果预览</h2>
+    <div class="outEffect">
+    <div id="outEffectDiv">text-overflow文本溢出</div>	
+    <div>未使用text-overflow文本溢出</div>
+    </div>
+
+</div>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

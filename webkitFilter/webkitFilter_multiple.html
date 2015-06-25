@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS3 webkit私有属性">
+    <meta name="description" content="css属性">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0">
+    <link href="../css/base.css" type="text/css" rel="stylesheet">
+    <title>CSS3 transform属性</title>
+    <style>
+        section { display: block; zoom: 1; margin-top: 10px; color: rgb(61, 70, 75); font-size: 13px; }
+            section h2 { margin: 0px; padding: 0px 10px; font-size: 14px; background-color: rgb(200, 200, 200); }
+        .main { display: block; }
+            .main span { font-size: 1.2em; }
+            .main pre { padding: 10px; border: 1px #999 dashed; color: #666; font-size: 1.2em; resize: both; overflow: hidden; }
+        .stage { width: 100%; height: 200px; font-size: 1.2em; color: #FFF; text-align: center; }
+        .actor { opacity: .8; pointer-events: none; border: 1px solid red; width: 200px; height: 100px; line-height: 100px; text-align: center; background-color: #ff0; color: #00f; font-size: 26px; position: relative; left: 400px; top: 100px; -webkit-transform: scale(1.5,.5); float: left; padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="index" href="../webkitFilter.html">transform</a><h1>CSS3 transform属性</h1>
+    </header>
+    <div class="main">
+        <section>
+            <h2>语法：</h2>
+            <p>
+                -webkit-filter: none;           
+            </p>
+        </section>
+        <section>
+            <h2>默认值:none</h2>
+        </section>
+        <section id="value" class="gmodule gattr">
+            <h2 class="tit">取值：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <p style="margin: 0px; padding: 0px; list-style-type: none; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(69, 69, 69); font-family: tahoma, helvetica, arial; line-height: 21px; background-color: rgb(255, 255, 255);">
+                    现在规范中支持的效果有:
+                </p>
+                <ul style="margin: 0px 0px 0px 35px; padding: 0px; list-style: square; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(69, 69, 69); font-family: tahoma, helvetica, arial; line-height: 21px; background-color: rgb(255, 255, 255);">
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">grayscale</span></strong>&nbsp;&nbsp;&nbsp;灰度&nbsp;取值（0~1）值越大灰度越大
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">sepia</span></strong>&nbsp;&nbsp;&nbsp;褐色&nbsp;&nbsp;&nbsp;&nbsp;取值（0~1）
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">saturate</span></strong><span style="color: rgb(192, 0, 0);">&nbsp;&nbsp;&nbsp;</span>饱和度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;取值（0~*）0为无饱和度，1为原图，值越大饱和度越大
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">hue-rotate</span></strong>&nbsp;&nbsp;&nbsp;色相旋转&nbsp;&nbsp;&nbsp;&nbsp;（按照色相环进行旋转，顺时针方向，红-橙-黄-黄绿-绿-蓝绿-蓝-蓝紫-紫-紫红-红）
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">invert</span></strong>&nbsp;&nbsp;&nbsp;反色&nbsp;&nbsp;&nbsp;&nbsp;取值（0~1）0为原图，1为彻底反色之后，0.5为灰色
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">opacity</span></strong>&nbsp;&nbsp;&nbsp;透明度&nbsp;&nbsp;&nbsp;&nbsp;取值（0~1）0为全透明，1为原图
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">brightness</span></strong>&nbsp;&nbsp;&nbsp;亮度&nbsp;&nbsp;&nbsp;&nbsp;取值（0~*）0是黑色，1时正常
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">contrast</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;对比度&nbsp;&nbsp;&nbsp;取值（0~*）0为无对比度（为灰色），1为原图，值越大对比度越大
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">blur</span></strong>&nbsp;&nbsp;&nbsp;模糊&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;取值（0px~*）
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">drop-shadow</span></strong>&nbsp;&nbsp;&nbsp;阴影&nbsp;&nbsp;&nbsp;&nbsp;取值（x&nbsp;y&nbsp;blur&nbsp;color）
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2 class="tit" style="">说明：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <strong>设置或检索对象的转换。</strong><ul style="margin: 0px; padding: 0px; list-style: none;">
+                    <li>对应的脚本特性为<strong>transform</strong>。</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>实例：</h2>
+            <pre contenteditable="false">-webkit-filter: drop-shadow(<span class="x_syncvalues">0</span>px <span class="y_syncvalues">0</span>px <span class="blur_syncvalues">0</span>px <span class="color_syncvalues">black</span>) blur(<span class="blurs_syncvalues">0</span>px) brightness(<span class="brightness_syncvalues">1</span>) contrast(<span class="contrast_syncvalues">1</span>) grayscale(<span class="grayscale_syncvalues">0</span>) hue-rotate(<span class="hue_rotate_syncvalues">0</span>deg) invert(<span class="invert_syncvalues">0</span>) opacity(<span class="opacity_syncvalues">1</span>) saturate(<span class="saturate_syncvalues">1</span>) sepia(<span class="sepia_syncvalues">1</span>);</pre>
+        </section>
+        <section>
+            <h2>操作：</h2>
+            <div style="text-align: center;">
+                <table style="width: 100%">
+                    <tr>
+                        <td rowspan="13" style="width: 200px;">
+                            <div class="stage">
+                                <img src="../test/pic/test_background.jpg" style="" />
+                            </div>
+                        </td>
+                        <td style="width: 100px">阴影X轴</td>
+                        <td>
+                            <input id="X" type="range" max="400" min="-400" step="1" value="0" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">阴影Y轴</td>
+                        <td>
+                            <input id="Y" type="range" max="400" min="-400" step="1" value="0" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">阴影blur</td>
+                        <td>
+                            <input id="blur" type="range" max="400" min="0" step="1" value="0" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">阴影颜色</td>
+                        <td>
+                            <input id="color" type="color" name="mycolor" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">模糊</td>
+                        <td>
+                            <input id="blurs" type="range" max="1000" min="0" step="1" value="0" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">亮度</td>
+                        <td>
+                            <input id="brightness" type="range" max="100" min="0" step=".1" value="1" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">对比度</td>
+                        <td>
+                            <input id="contrast" type="range" max="100" min="0" step=".1" value="1" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">灰度</td>
+                        <td>
+                            <input id="grayscale" type="range" max="1" min="0" step="0.01" value="0" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">色相</td>
+                        <td>
+                            <input id="hue_rotate" type="range" max="360" min="0" step="1" value="0" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">反色</td>
+                        <td>
+                            <input id="invert" type="range" max="1" min="0" step="0.01" value="0" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">透明</td>
+                        <td>
+                            <input id="opacity" type="range" max="1" min="0" step="0.01" value="1" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">饱和度</td>
+                        <td>
+                            <input id="saturate" type="range" max="100" min="0" step=".1" value="1" style="width: 100%" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px">褐色</td>
+                        <td>
+                            <input id="sepia" type="range" max="1" min="0" step="0.01" value="0" style="width: 100%" /></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section>
+        </section>
+    </div>
+    <footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script src="../test/javascript/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+    $(function ()
+    {
+        var x_syncvalues = 0, y_syncvalues = 0, blur_syncvalues = 0, color_syncvalues = "black";
+        var blurs_syncvalues = 0, brightness_syncvalues = 1, contrast_syncvalues = 1, grayscale_syncvalues = 0, hue_rotate_syncvalues = 0, invert_syncvalues = 0, opacity_syncvalues = 1, saturate_syncvalues = 1, sepia_syncvalues = 0;
+        $("#X").change(function ()
+        {
+            x_syncvalues = this.value;
+            setTransform()
+            $(".x_syncvalues").html(x_syncvalues);
+        });
+        $("#Y").change(function ()
+        {
+            y_syncvalues = this.value;
+            setTransform()
+            $(".y_syncvalues").html(y_syncvalues);
+        });
+        $("#blur").change(function ()
+        {
+            blur_syncvalues = this.value;
+            setTransform()
+            $(".blur_syncvalues").html(blur_syncvalues);
+        });
+        $("#color").change(function ()
+        {
+            color_syncvalues = this.value;
+            setTransform()
+            $(".color_syncvalues").html(color_syncvalues);
+        });
+        $("#blurs").change(function ()
+        {
+            blurs_syncvalues = this.value;
+            setTransform()
+            $(".blurs_syncvalues").html(blurs_syncvalues);
+        });
+        $("#brightness").change(function ()
+        {
+            brightness_syncvalues = this.value;
+            setTransform()
+            $(".brightness_syncvalues").html(brightness_syncvalues);
+        });
+        $("#contrast").change(function ()
+        {
+            contrast_syncvalues = this.value;
+            setTransform()
+            $(".contrast_syncvalues").html(contrast_syncvalues);
+        });
+        $("#grayscale").change(function ()
+        {
+            grayscale_syncvalues = this.value;
+            setTransform()
+            $(".grayscale_syncvalues").html(grayscale_syncvalues);
+        });
+        $("#hue_rotate").change(function ()
+        {
+            hue_rotate_syncvalues = this.value;
+            setTransform()
+            $(".hue_rotate_syncvalues").html(hue_rotate_syncvalues);
+        });
+        $("#invert").change(function ()
+        {
+            invert_syncvalues = this.value;
+            setTransform()
+            $(".invert_syncvalues").html(invert_syncvalues);
+        });
+        $("#opacity").change(function ()
+        {
+            opacity_syncvalues = this.value;
+            setTransform()
+            $(".opacity_syncvalues").html(opacity_syncvalues);
+        });
+        $("#saturate").change(function ()
+        {
+            saturate_syncvalues = this.value;
+            setTransform()
+            $(".saturate_syncvalues").html(saturate_syncvalues);
+        });
+        $("#sepia").change(function ()
+        {
+            sepia_syncvalues = this.value;
+            setTransform()
+            $(".sepia_syncvalues").html(sepia_syncvalues);
+        });
+        function setTransform()
+        {
+            $(".stage img").css({ "-webkit-filter": "drop-shadow(" + x_syncvalues + "px " + y_syncvalues + "px " + blur_syncvalues + "px " + color_syncvalues + ") blur(" + blurs_syncvalues + "px) brightness(" + brightness_syncvalues + ") contrast(" + contrast_syncvalues + ") grayscale(" + grayscale_syncvalues + ") hue-rotate(" + hue_rotate_syncvalues + "deg) invert(" + invert_syncvalues + ") opacity(" + opacity_syncvalues + ") saturate(" + saturate_syncvalues + ") sepia(" + sepia_syncvalues + ")" });
+        }
+    });
+</script>
+</html>

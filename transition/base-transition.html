@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>CSS3 Transitions动画属性</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:1.2em;
+	color:#FFF;
+
+
+}
+#outEffectDiv 
+{
+	width:300px;
+	height:200px;
+	line-height:200px;
+	position:relative;
+	-webkit-transition:left linear 1s;
+}
+#outEffectDiv a
+{
+	display:block;
+	width:50px;
+	height:50px;
+	background-color:rgba(255,0,0,0.9);
+	top:60px;
+	left:20px;
+	position:absolute;
+	-webkit-transition:left linear 1s;
+}
+#outEffectDiv a:focus,#outEffectDiv a:hover
+{
+	left:400px
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../TransitionsGuide.html">Trans</a><h1>CSS3 Transitions动画属性</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>transition:[transition-property||transition-duration||transition-timing-function||transition-delay||transition-property||transition-duration||transition-timing-function||transition-delay]
+    <h2>说明</h2>
+    <h3>transition也是一个复合属性，语法如下：</h3>
+	<p>transition-property:none | all  当元素其中一个属性改变时执行transition效果</p>
+    <p>transition-duration:总时间</p>
+    <p>transition-delay:延迟过渡时间</p>
+     <p>transition-timing-function:ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier</p>
+     
+     <p>如果一个元素在过渡，那么他的过渡属性是当前时间的新属性，不是最初的也不是最终的。</p>
+   <h2>实例</h2>
+    <pre contentEditable=false>
+		-webkit-transition:left linear 1s;
+    </pre>
+    
+    <h2>效果预览</h2>
+    <div class="outEffect">
+        <div id="outEffectDiv">     
+			<a href="#"></a>
+        </div>	
+    </div>
+    
+</div>
+
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script type="text/javascript">
+
+</script>
+</html>

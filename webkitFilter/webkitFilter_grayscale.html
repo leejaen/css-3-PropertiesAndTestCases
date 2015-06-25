@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS3 webkit私有属性">
+    <meta name="description" content="css属性">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0">
+    <link href="../css/base.css" type="text/css" rel="stylesheet">
+    <title>CSS3 transform属性</title>
+    <style>
+        section { display: block; zoom: 1; margin-top: 10px; color: rgb(61, 70, 75); font-size: 13px; }
+            section h2 { margin: 0px; padding: 0px 10px; font-size: 14px; background-color: rgb(200, 200, 200); }
+        .main { display: block; }
+            .main span { font-size: 1.2em; }
+            .main pre { padding: 10px; border: 1px #999 dashed; color: #666; font-size: 1.2em; resize: both; overflow: hidden; }
+        .stage { width: 100%; height: 200px; font-size: 1.2em; color: #FFF; text-align: center; }
+        .actor { opacity: .8; pointer-events: none; border: 1px solid red; width: 200px; height: 100px; line-height: 100px; text-align: center; background-color: #ff0; color: #00f; font-size: 26px; position: relative; left: 400px; top: 100px; -webkit-transform: scale(1.5,.5); float: left; padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="index" href="../webkitFilter.html">transform</a><h1>CSS3 transform属性</h1>
+    </header>
+    <div class="main">
+        <section>
+            <h2>语法：</h2>
+            <p>
+                -webkit-filter: none;           
+            </p>
+        </section>
+        <section>
+            <h2>默认值:none</h2>
+        </section>
+        <section id="value" class="gmodule gattr">
+            <h2 class="tit">取值：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <p style="margin: 0px; padding: 0px; list-style-type: none; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(69, 69, 69); font-family: tahoma, helvetica, arial; line-height: 21px; background-color: rgb(255, 255, 255);">
+                    现在规范中支持的效果有:
+                </p>
+                <ul style="margin: 0px 0px 0px 35px; padding: 0px; list-style: square; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(69, 69, 69); font-family: tahoma, helvetica, arial; line-height: 21px; background-color: rgb(255, 255, 255);">
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">grayscale</span></strong>&nbsp;&nbsp;&nbsp;灰度&nbsp;取值（0~1）值越大灰度越大
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">sepia</span></strong>&nbsp;&nbsp;&nbsp;褐色&nbsp;&nbsp;&nbsp;&nbsp;取值（0~1）
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">saturate</span></strong><span style="color: rgb(192, 0, 0);">&nbsp;&nbsp;&nbsp;</span>饱和度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;取值（0~*）0为无饱和度，1为原图，值越大饱和度越大
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">hue-rotate</span></strong>&nbsp;&nbsp;&nbsp;色相旋转&nbsp;&nbsp;&nbsp;&nbsp;（按照色相环进行旋转，顺时针方向，红-橙-黄-黄绿-绿-蓝绿-蓝-蓝紫-紫-紫红-红）
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">invert</span></strong>&nbsp;&nbsp;&nbsp;反色&nbsp;&nbsp;&nbsp;&nbsp;取值（0~1）0为原图，1为彻底反色之后，0.5为灰色
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">opacity</span></strong>&nbsp;&nbsp;&nbsp;透明度&nbsp;&nbsp;&nbsp;&nbsp;取值（0~1）0为全透明，1为原图
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">brightness</span></strong>&nbsp;&nbsp;&nbsp;亮度&nbsp;&nbsp;&nbsp;&nbsp;取值（0~*）0是黑色，1时正常
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">contrast</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;对比度&nbsp;&nbsp;&nbsp;取值（0~*）0为无对比度（为灰色），1为原图，值越大对比度越大
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">blur</span></strong>&nbsp;&nbsp;&nbsp;模糊&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;取值（0px~*）
+                        </p>
+                    </li>
+                    <li style="margin: 0px; padding: 0px; list-style: none;">
+                        <p style="margin: 0px; padding: 0px; list-style-type: none;">
+                            <strong><span style="color: rgb(192, 0, 0);">drop-shadow</span></strong>&nbsp;&nbsp;&nbsp;阴影&nbsp;&nbsp;&nbsp;&nbsp;取值（x&nbsp;y&nbsp;blur&nbsp;color）
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2 class="tit" style="">说明：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <strong>设置或检索对象的转换。</strong><ul style="margin: 0px; padding: 0px; list-style: none;">
+                    <li>对应的脚本特性为<strong>transform</strong>。</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>实例：</h2>
+            <pre contenteditable="false">
+		-webkit-filter: grayscale(<span class="syncvalues">0</span>);</pre>
+        </section>
+        <section>
+            <h2>操作：</h2>
+            <div style="text-align: center;">
+                <input id="steeringWheel" type="range" max="1" min="0" step="0.01" value="0" style="width: 100%" />
+                <span></span>
+            </div>
+        </section>
+        <section>
+            <h2>效果预览：</h2>
+            <div class="stage">
+                b
+                <img src="../test/pic/test_background.jpg" style="-webkit-filter: grayscale(0)" />
+            </div>
+        </section>
+    </div>
+    <footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script src="../test/javascript/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#steeringWheel").change(function ()
+        {
+            $(".stage img").css({ "-webkit-filter": "grayscale(" + this.value + ")" });
+            $(".syncvalues").html(this.value);
+        });
+    });
+</script>
+</html>

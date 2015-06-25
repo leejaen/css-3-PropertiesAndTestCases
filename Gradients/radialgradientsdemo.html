@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<link href="css/buttons.css" type="text/css" rel="stylesheet">
+
+<link href="css/zocial.css" type="text/css" rel="stylesheet">
+
+<title>渐变复合效果Gradient</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+}
+
+.outEffect
+{
+	/*background-color:#333;*/
+	width:100%;
+	font-size:2.4em;
+	color:#FFF;
+}
+#outEffectDiv 
+{
+	
+	width:85px;
+	height:24px;
+}
+#outEffectDiv2
+{
+	width:38px;
+	height:29px;
+}
+#outEffectDiv3
+{
+	width:38px;
+	height:29px;
+}
+#outEffectDiv4,#outEffectDiv5,#outEffectDiv6
+{
+	width:58px;
+	height:29px;
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../GradientGuide.html">gradient</a><h1>渐变复合效果Gradient
+</h1></header>
+<div class="main">
+<!--  /*	<h2>语法：</h2>
+    <p>-webkit-radial-gradient([angle | | to  keywords，] , 开始颜色值,结束颜色值, [(停靠颜色值,偏移量百分数),...] );
+    <h3>取值</h3>
+		<p>angle:0deg</P>
+        <p>keywords: [left | right] || [top | bottom]  默认为center</p>
+  */--> 
+      
+  <h2><a href="css/buttons.css">1、下载css文件</a></h2>
+    <pre contentEditable=false>
+        &lt;div id=&quot;outEffectDiv&quot; class=&quot;button&quot; data-icon=&quot;&quot; &gt;Button&lt;/div&gt;
+        &lt;div id=&quot;outEffectDiv2&quot; class=&quot;button blue back glass&quot; data-icon=&quot;&quot; &gt;ok&lt;/div&gt;
+        &lt;div id=&quot;outEffectDiv3&quot; class=&quot;button pink serif skew glossy&quot; data-icon=&quot;&quot; &gt;ok&lt;/div&gt;
+    </pre>
+ 
+    <h2>效果预览</h2>
+    <div class="outEffect">
+        <div id="outEffectDiv" class="button" data-icon="" >Button</div>
+        <div id="outEffectDiv2" class="button blue back glass" data-icon="" >ok</div>
+        <div id="outEffectDiv3" class="button pink serif skew glossy" data-icon="" >ok</div>	
+        <div id="outEffectDiv4" class="button green back  glass" data-icon="" >ok</div>	
+        <div id="outEffectDiv5" class="button orange glossy" data-icon="" >ok</div>	
+      <div id="outEffectDiv6" class="button pink" data-icon="" >ok</div>	
+    </div>
+    
+    
+    <br/> <br/> <br/>
+ 
+  <h2><a href="css/zocial.css">2、下载css文件</a></h2>
+    <pre contentEditable=false>
+            &lt;div  class=&quot;zocial android&quot; &gt;Button&lt;/div&gt;
+            &lt;div class=&quot;zocial quora&quot;   &gt;ok&lt;/div&gt;
+            &lt;div   class=&quot;zocial yelp &quot; &gt;ok&lt;/div&gt;
+            &lt;div   class=&quot;zocial youtube&quot; &gt;ok&lt;/div&gt;	
+   </pre>
+ 
+    <h2>效果预览</h2>
+    <div class="outEffect">
+      <div  class="zocial android" >Button</div>
+      <div class="zocial quora"   >ok</div>
+      <div   class="zocial yelp " >ok</div>	
+      <div   class="zocial youtube" >ok</div>	
+      <div id="outEffectDiv5" class="zocial icon posterous"  >ok</div>	
+      <div   class="zocial fivehundredpx icon"  >ok</div>	
+    </div>
+</div>
+
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script type="text/javascript">
+</script>
+
+</html>

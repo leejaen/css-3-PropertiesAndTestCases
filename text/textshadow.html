@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>Text Shadow(文本阴影)</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+
+}
+.effect1 {
+  color: #ccc;
+  text-shadow: -1px -1px 0 #fff,1px 1px 0 #333,1px 1px 0 #444;
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:2.4em;
+
+}
+
+.effect2
+{
+	color: #000;
+	text-shadow: 0 2px 2px #fff; 
+}
+.outEffect div
+{
+	margin:10px 0px 10px 0px;
+	display:inline-block;
+}
+.effect3
+{
+  color: #fff;
+  text-shadow: 1px 1px rgba(197, 223, 248,0.8),2px 2px rgba(197, 223, 248,0.8),3px 3px rgba(197, 223, 248,0.8),4px 4px rgba(197, 223, 248,0.8),5px 5px rgba(197, 223, 248,0.8),6px 6px rgba(197, 223, 248,0.8);
+}
+.effect4
+{
+	color: #eee;
+	text-shadow: 5px 5px 0 #666, 7px 7px 0 #eee;
+}
+.effect5
+{
+	color: transparent;
+	text-shadow: 0 0 4px #f96;
+}
+
+.effect6
+{
+ color: transparent;
+  text-shadow:0 0 6px #F96, -1px -1px  #FFF, 1px -1px  #444;
+}
+.none
+{
+	color:#fff;
+}
+
+.compoundEffect
+{
+	width:100%;
+	font-size:2.4em;
+	background-color:#333;
+
+}
+.compoundEffectDiv1
+{
+	color: transparent;
+	display:inline-block;
+	margin:10px 0 10px 10px;
+	-webkit-animation-direction:alternate;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration:3s;
+	-webkit-animation-name:compoundEffectDivKey;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:1s;
+	
+}
+@-webkit-keyframes compoundEffectDivKey
+{
+	0%{text-shadow: 0 0 0px #9FF;}	
+	10%{text-shadow: 0 0 0px #9FF;}	 
+	50%{text-shadow: 0 0 10px #9FF;}
+	90%{text-shadow: 0 0 0px #9FF;}	
+	100%{text-shadow: 0 0 0px #9FF;}	
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../TextGuide.html">TEXT</a><h1>Text Shadow(文本阴影)
+</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>text-shadow ： none | <length> none | [<shadow>, ] * <shadow> 或none | <color> [, <color> ]*
+<br>
+text-shadow:[颜色(Color)  x轴(X Offset) y轴(Y Offset) 模糊半径(Blur)],[颜色(color) x轴(X Offset) y轴(Y Offset) 模糊半径(Blur)]...
+<br>
+text-shadow:[x轴(X Offset) y轴(Y Offset)  模糊半径(Blur)  颜色(Color)],[x轴(X Offset) y轴(Y Offset)  模糊半径(Blur)  颜色(Color)]...</p>
+    <h2>说明</h2>
+    <p>
+    &lt;length&gt;：长度值，可以是负值。用来指定阴影的延伸距离。其中X Offset是水平偏移值，Y Offset是垂直偏移值<br>
+    
+    &lt;color&gt;：指定阴影颜色，也可以是rgba透明色值<br>
+    
+    &lt;shadow&gt;：阴影的模糊值，不可以是负值，用来指定模糊效果的作用距离。
+    </p>
+    <h3>备注</h3>
+        <p>可以给一个对象应用一组或多组阴影效果，方式如前面的语法显示一样，用逗号隔开。text-shadow: X-Offset Y-Offset Blur Color中X-Offset表示阴影的水平偏移距离，其值为正值时阴影向右偏移，如果其值为负值时，阴影向左偏移；Y-Offset是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移反之其值是负值时阴影向顶部偏移；Blur是指阴影的模糊程度，其值不能是负值，如果值越大，阴影越模糊，反之阴影越清晰，如果不需要阴影模糊可以将Blur值设置为0；Color是指阴影的颜色，其可以使用rgba色。</p>
+   <h2>实例</h2>
+    <pre contentEditable=false>&nbsp;  
+    text-shadow: -1px -1px 0 #fff,1px 1px 0 #333,1px 1px 0 #444;
+    text-shadow: 0 2px 2px #fff; 
+    text-shadow: 1px 1px rgba(197, 223, 248,0.8),2px 2px rgba(197, 223, 248,0.8),3px 3px rgba(197, 223, 248,0.8),4px 4px rgba(197, 223, 248,0.8),5px 5px rgba(197, 223, 248,0.8),6px 6px rgba(197, 223, 248,0.8);
+    text-shadow: 5px 5px 0 #666, 7px 7px 0 #eee;
+    text-shadow: 0 0 4px #f96; color: transparent;
+    text-shadow:0 0 6px #F96, -1px -1px  #FFF, 1px -1px  #444;
+    </pre>
+    <h2>效果预览</h2>
+    <div class="outEffect">
+       <div class="none" title="无任何效果">
+       		 text-shadow未使用
+        </div>
+   
+        <div class="effect1">
+       		 text-shadow效果1
+        </div>
+        <div class="effect2">
+      	  text-shadow效果2
+        </div>
+        <div class="effect3">
+        	text-shadow效果3
+        </div>
+          <div class="effect4">
+        	text-shadow效果4
+        </div>
+            <div class="effect5">
+        	text-shadow效果5
+        </div>
+           <div class="effect6">
+        	text-shadow效果6
+        </div>
+		
+    </div>
+    <h2>复合效果预览</h2>
+    <div class="compoundEffect">
+    <div class="compoundEffectDiv1">
+    	简单的text-shadow动画效果</div>
+    </div>
+</div>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

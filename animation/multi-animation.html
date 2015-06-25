@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>多动画叠加animation</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:1.2em;
+	color:#FFF;
+
+
+}
+#outEffectDiv 
+{
+	width:300px;
+	height:200px;
+	position:relative;
+	
+}
+
+.ani
+{
+	width:50px;
+	height:50px;
+	position:absolute;
+	top:40px;
+	left:100px;
+	background-color:transparent;
+	border:1px solid #fff;
+	-webkit-animation:animov 2s linear;
+	-webkit-animation-iteration-count:infinite;
+	border-radius:50px;
+}
+#aniDiv
+{
+	-webkit-animation-delay:1.5s;
+}
+#aniDiv2
+{
+	
+	-webkit-animation-delay:2s;
+}
+#aniDiv3
+{
+	border-color:#FFF;
+	-webkit-animation-delay:3s;
+}
+#aniDiv4
+{
+	border-color:#CF0;
+	-webkit-animation-delay:4.8s;
+}
+@-webkit-keyframes animov
+{
+	0% {top:40px; left:100px;}
+	20% {top:150px; left:10px;}
+	40% {top:10px; left:0px;}
+	60% {top:150px; left:50px;}
+	80% {top:0px; left:70px;}
+	100% {top:40px; left:100px;}
+}
+
+</style>
+</head>
+<body>
+<header><a class="index" href="../animationGuide.html">animation</a><h1>多动画叠加animation</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>-webkit-animation: name duration timing-function delay iteration_count direction;
+    <h2>说明</h2>
+    <p> -webkit-animation-name    这个属性的使用必须结合@-webkit-keyframes一起使用</p>
+    <p>-webkit-animation-duration   表示动画持续的时间</p>
+    <p>-webkit-animation-timing-function  表示动画使用的时间曲线 ease | linear | ease-in | ease-out | ease-in-out</p>
+    <p>-webkit-animation-delay    表示开始动画之前的延时</p>
+    <p>-webkit-animation-iteration-count  表示动画要重复几次</p>
+    <p>-webkit-animation-direction   表示动画的方向 normal(默认)  | alternate  ,normal  方向始终向前,alternate 当重复次数为偶数时方向向前，奇数时方向相反</p>
+    <p>-webkit-animation-fill-mode : none (默认)| backwards | forwards | both  设置动画开始之前和结束之后的行为</p>
+    <p>-webkit-animation-play-state: running（默认） | paused  设置动画的运行状态</p>
+    <h3>语法如下：</h3>
+  	<h2>实例</h2>
+    <pre contentEditable=false>
+            &lt;div id=&quot;aniDiv&quot; class=&quot;ani&quot;&gt;&lt;/div&gt;
+            &lt;div id=&quot;aniDiv2&quot;  class=&quot;ani&quot;&gt;&lt;/div&gt;
+            &lt;div id=&quot;aniDiv3&quot; class=&quot;ani&quot;&gt;&lt;/div&gt;
+            &lt;div id=&quot;aniDiv4&quot;  class=&quot;ani&quot;&gt;&lt;/div&gt;
+            #aniDiv
+            {
+                -webkit-animation-delay:1.5s;
+            }
+            #aniDiv2
+            {
+                
+                -webkit-animation-delay:2s;
+            }
+            #aniDiv3
+            {
+                border-color:#FFF;
+                -webkit-animation-delay:3s;
+            }
+            #aniDiv4
+            {
+                border-color:#CF0;
+                -webkit-animation-delay:4.8s;
+            }
+    </pre>
+    
+    <h2>效果预览</h2>
+    <div class="outEffect">
+        <div id="outEffectDiv">     
+			<div id="aniDiv" class="ani"></div>
+          <div id="aniDiv2"  class="ani"></div>
+            <div id="aniDiv3" class="ani"></div>
+            <div id="aniDiv4"  class="ani"></div>
+        </div>	
+    </div>
+
+    
+</div>
+
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script type="text/javascript">
+</script>
+</html>

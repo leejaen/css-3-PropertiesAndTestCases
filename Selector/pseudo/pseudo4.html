@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../../css/base.css" type="text/css" rel="stylesheet"> 
+<title>E:last-child结构性伪类选择符</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../../SelectorGuide.html">Selector</a><h1>E:last-child结构性伪类选择符
+</h1></header>
+
+<div class="main">
+
+<h2>语法：</h2>
+<p>E:last-child{ sRules }</p>
+<h2>说明</h2>
+<p>匹配父元素的最后一个子元素E。
+要使该属性生效，E对象必须是某个对象的子元素。
+</p>
+
+<h2>实例</h2>
+<pre contentEditable=false>  &lt;html&gt;<br>  &lt;head&gt;<br>  &lt;style type=&quot;text/css&quot;&gt;<br>  li{height:20px; line-height:20px; font-size:12px;}<br>	<b class="light">.b  li:last-child/*注意用的不是ul:last-child*/	{<br>		background-color:#FC3;<br>	}</b><br>  &lt;/style&gt;<br>  &lt;/head&gt;<br>  &lt;body &gt;<br>&lt;div class=&quot;demo&quot;&gt;<br>      &lt;ul class=&quot;a&quot;&gt;<br>          &lt;li&gt;a1&lt;/li&gt;<br>          &lt;li&gt;a2&lt;/li&gt;<br>          &lt;li&gt;a3&lt;/li&gt;<br>          &lt;li&gt;a4&lt;/li&gt;<br>          &lt;li&gt;a5&lt;/li&gt;<br>          &lt;li&gt;a6&lt;/li&gt;<br>      &lt;/ul&gt;<br>          &lt;ul class=&quot;b&quot;&gt;<br>          &lt;li&gt;b1&lt;/li&gt;<br>          &lt;li&gt;b2&lt;/li&gt;<br>          &lt;li&gt;b3&lt;/li&gt;<br>          &lt;li&gt;b4&lt;/li&gt;<br>          &lt;li&gt;b5&lt;/li&gt;<br>          &lt;li&gt;b6&lt;/li&gt;<br>      &lt;/ul&gt;<br>      <br>  &lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>  &lt;/html&gt;</pre>
+<h2>效果预览</h2>
+<div>
+  <html>
+  <head>
+  <style type="text/css">
+  li{height:20px; line-height:20px; font-size:12px;}
+	.b  li:last-child/*注意用的不是ul:first-child*/
+	{
+		background-color:#FC3;
+	}
+  </style>
+  </head>
+  <body >
+<div class="demo">
+      <ul class="a">
+          <li>a1</li>
+          <li>a2</li>
+          <li>a3</li>
+          <li>a4</li>
+          <li>a5</li>
+          <li>a6</li>
+      </ul>
+          <ul class="b">
+          <li>b1</li>
+          <li>b2</li>
+          <li>b3</li>
+          <li>b4</li>
+          <li>b5</li>
+          <li>b6</li>
+      </ul>
+      
+  </div>
+</div>
+</body>
+  </html>
+
+</div>
+
+</div>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

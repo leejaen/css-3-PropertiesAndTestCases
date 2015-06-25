@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="no-cache,must-revalidate" />
+    <title>其他兼容性测试</title>
+    <style>
+        img { float: left; }
+        body { padding: 40px; background-color: #fff; }
+    </style>
+</head>
+<body onload="all();">
+    <header>
+        <a class="index" href="index.html">首页</a><span style="color: #f00" id="tips"></span><!--<input id="Button1" type="button" value="开始" />-->
+        <h1>jpeg图片加载测试</h1>
+        <div>
+            小图片加载时间共占用：<span id="jpeg_small">0</span>ms；大图片加载时间共占用：<span id="jpeg_big">0</span>ms；页面加载时间共占用：<span id="jpeg_all">0</span>ms
+        </div>
+    </header>
+    <div>
+        <div id="small"></div>
+        <div id="big"></div>
+    </div>
+</body>
+<script>
+    var imgstr_small = "", imgstr_big = "", then = 0, smallT = 0, bigT = 0, j = 0, k = 0, smallTimes = 100, bigTimes = 10;
+    (function ()
+    {
+        if (window.localStorage.autoTest == "5")
+        {
+            document.getElementById("tips").innerHTML = ("〉〉〉〉〉〉正在自动测试中，请勿动遥控器或鼠标");
+        }
+        //生成小图并且计算出结果
+        for (var i = 0; i < smallTimes; i++)
+        {
+            imgstr_small += ("<img src='pic/jpeg/small/formlyjpeg%20(" + (i % 20 + 1) + ").jpg?i=" + i + new Date() + "' onload='load_small();'>");
+        }
+        //生成大图并且计算出结果
+        for (var i = 0; i < bigTimes; i++)
+        {
+            imgstr_big += ("<img src='pic/jpeg/big/formlyjpg%20(" + (i % 10 + 1) + ").jpeg?i=" + i + new Date() + "' onload='load_big();'>");
+        }
+        if (window.localStorage.pic_test_jpeg_type == "auto")
+        {//自动测试测试5遍
+            if (window.localStorage.pic_test_jpeg_times >= 0)
+            {
+                dotest();
+            }
+        }
+        else
+        {//手动测试
+            dotest();
+        }
+    })();
+    function dotest()
+    {
+        then = (new Date()).getTime();
+        document.getElementById("small").innerHTML = (imgstr_small);
+        document.getElementById("big").innerHTML = (imgstr_big);
+    }
+    function load_small()
+    {
+        j++;
+        smallT = (new Date().getTime() - then);
+        if (j >= smallTimes)
+        {//载入完毕
+            document.getElementById("jpeg_small").innerHTML = (smallT)
+        }
+    }
+    function load_big()
+    {
+        k++;
+        bigT = (new Date().getTime() - then);
+        if (k >= bigTimes)
+        {//载入完毕
+            document.getElementById("jpeg_big").innerHTML = (bigT)
+            //document.getElementById("jpeg_all").html((new Date()).getTime() - then);
+        }
+    }
+    function all()
+    {
+        document.getElementById("jpeg_all").innerHTML = ((new Date()).getTime() - then);
+        if (window.localStorage.pic_test_jpeg_type == "auto")
+        {//自动测试测试5遍
+            if (window.localStorage.pic_test_jpeg_times > 0)
+            {
+                //记录每次的测试结果
+                window.localStorage.pic_test_jpeg_result += (window.localStorage.pic_test_jpeg_result != "" ? ";" : "") + "[" + (
+                    document.getElementById("jpeg_small").innerHTML + ","
+                    + document.getElementById("jpeg_big").innerHTML + ","
+                    + document.getElementById("jpeg_all").innerHTML
+                    ) + "]";
+
+                setTimeout(function ()
+                {//测试完一次进入下一次
+                    window.localStorage.pic_test_jpeg_times = parseInt(window.localStorage.pic_test_jpeg_times) - 1;
+
+                    location.reload(true);
+                }, 2000);
+            }
+            else if (window.localStorage.pic_test_jpeg_times == "0")
+            {
+                window.localStorage.autoTest = "6";
+                setTimeout(function ()
+                {//测试完一次进入下一次
+                    document.location.href = "pic_load_png.html";
+                }, 2000);
+
+                window.localStorage.pic_test_png_type = "auto";
+                window.localStorage.pic_test_png_times = 5;
+                window.localStorage.pic_test_png_result = "";
+            }
+        }
+    }
+</script>
+</html>

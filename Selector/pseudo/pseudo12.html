@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../../css/base.css" type="text/css" rel="stylesheet"> 
+<title>E:nth-last-of-type(n)结构性伪类选择符</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+}
+</style>
+</head>
+<body>
+<header><a class="index" href="../../SelectorGuide.html">Selector</a><h1>E:nth-last-of-type(n)结构性伪类选择符
+</h1></header>
+
+<div class="main">
+
+<h2>语法：</h2>
+<p>E:nth-last-of-type(n){ sRules }</p>
+<h2>说明</h2>
+<p>匹配同类型中的倒数第n个同级兄弟元素E。
+</p>
+
+<h2>实例</h2>
+<pre contentEditable=false>
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+  li{height:20px; line-height:20px; font-size:12px;}
+.a li:nth-last-of-type(6)
+  {
+  background-color:#0F6;
+  }
+ &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body &gt;
+  &lt;div class=&quot;demo&quot;&gt;
+  &lt;ul class=&quot;a&quot;&gt;
+  &lt;li&gt;a1&lt;/li&gt;
+  &lt;p&gt;我是p标签&lt;/p&gt;
+  &lt;li&gt;a2&lt;/li&gt;
+  &lt;li&gt;a3&lt;/li&gt;
+  &lt;li&gt;a4&lt;/li&gt;
+  &lt;li&gt;a5&lt;/li&gt;
+  &lt;li&gt;a6&lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+
+</pre>
+
+<h2>效果预览</h2>
+<div>
+  <html>
+  <head>
+  <style type="text/css">
+  li{height:20px; line-height:20px; font-size:12px;}
+
+	.a li:nth-last-of-type(6)
+	{
+		background-color:#0F6;
+	}
+
+  </style>
+  </head>
+  <body >
+<div class="demo">
+      <ul class="a">
+          <li>a1</li>
+          <p>我是p标签</p>
+        <li>a2</li>
+          <li>a3</li>
+          <li>a4</li>
+          <li>a5</li>
+          <li>a6</li>
+      </ul>
+      
+  </div>
+</div>
+</body>
+  </html>
+
+</div>
+
+</div>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

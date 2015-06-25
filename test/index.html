@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS3 webkit私有属性">
+    <meta name="description" content="css属性">
+    <meta http-equiv="Content-Type" content="no-cache,must-revalidate" />
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0">
+    <link href="css/guide.css" type="text/css" rel="stylesheet">
+    <link href="css/score.css" type="text/css" rel="stylesheet">
+    <link href="css/buttons.css" type="text/css" rel="stylesheet">
+    <title>CSS藏宝图CSS3 Selector</title>
+</head>
+<body>
+    <header>
+        <a class="index" href="index.html">首页</a>
+        <h1>基准测试 v0.0.2</h1>
+    </header>
+    <nav class="nav">
+        <ul>
+            <li><a href="loadtest.html">浏览器页面加载测试参考</a></li>
+            <li><a href="csstest.html">浏览器CSS渲染测试参考</a></li>
+            <li><a href="javascriptspeedtests.html">Javascript测试参考</a></li>
+            <li><a href="divanim.html">html动画测试参考</a></li>
+            <li><a href="pic_load.html">图片载入测试</a></li>
+            <li><a href="basegrid.html">其他兼容性测试</a></li>
+            <li><a href="http://acid3.acidtests.org/">web兼容性测试(Acid3)--站外地址</a></li>
+            <li><a href="http://html5test.com/">html5 test--站外地址</a></li>
+            <li><a href="http://octane-benchmark.googlecode.com/svn/latest/index.html">JavaScript测试套件octane--站外地址</a></li>
+            <li><a href="http://www.webkit.org/perf/sunspider-0.9.1/sunspider-0.9.1/driver.html">SunSpider JavaScript Benchmark 测试--站外地址</a></li>
+        </ul>
+    </nav>
+
+    <nav>
+        <ul>
+            <li class="button green  " style="display: block; margin-left: 30px; width: 160px; text-align: center" onclick="goTest();">
+                <a id="autoTestA" href="#" style="width: 160px" onfocus="this.parentNode.className='button orange'" onblur="this.parentNode.className='button green'">自动测试</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <footer>
+
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" id="score">
+            <thead>
+                <td colspan="4" align="center">测试结果</td>
+                <td width="0%">
+            </thead>
+            <tr>
+                <td width="25%" align="center">测试项目</td>
+                <td width="13%" align="center">济南7161C</td>
+                <td width="13%" align="center">山东省网7161C</td>
+                <td width="19%" align="center" bgcolor="#FFCCCC">测试结果(平均值)</td>
+                <td width="43%" align="center">原始数据</td>
+            </tr>
+
+            <tr>
+                <td align="right">浏览器页面加载基准测试&nbsp;</td>
+                <td><b>5100ms</b></td>
+                <td>7761ms</td>
+                <td id="load" bgcolor="#FFCCCC">&nbsp;</td>
+                <td id="dataload">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">浏览器CSS渲染测试&nbsp;</td>
+                <td>301ms</td>
+                <td><b>76ms</b></td>
+                <td id="cssTest" bgcolor="#FFCCCC">&nbsp;</td>
+                <td id="dataCssTest">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">Javascript测试&nbsp;</td>
+                <td>42000ms</td>
+                <td><b>2498ms</b></td>
+                <td id="jsTest" bgcolor="#FFCCCC">&nbsp;</td>
+                <td id="dataJsTest">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">html动画基准测试&nbsp;</td>
+                <td>12FPS</td>
+                <td>12FPS</td>
+                <td id="aniTest" bgcolor="#FFCCCC">&nbsp;</td>
+                <td id="dataAniTest">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">jpg图片加载时间基准测试&nbsp;</td>
+                <td>11433ms</td>
+                <td>重启</td>
+                <td id="jpgTest" bgcolor="#FFCCCC">2736.8ms</td>
+                <td id="dataJpgTest">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">png图片加载时间基准测试&nbsp;</td>
+                <td>9920.6ms</td>
+                <td>重启</td>
+                <td id="pngTest" bgcolor="#FFCCCC">2490.4ms</td>
+                <td id="dataPngTest">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right">gif图片加载时间基准测试&nbsp;</td>
+                <td>50147.8ms</td>
+                <td>重启</td>
+                <td id="gifTest" bgcolor="#FFCCCC">&nbsp;</td>
+                <td id="dataGifTest">&nbsp;</td>
+            </tr>
+            <!--    <tr>
+      <td>web兼容性测试(Acid3)</td>
+      <td>100</td>
+      <td id="acid3Test">未测试</td>
+      <td id="dataAcid3Test">未测试</td>
+    </tr>-->
+        </table>
+        <p>说明：</p>
+        <p><b>自动测试：对"浏览器页面加载测试参考"进行10次测试,"浏览器CSS渲染测试参考"进行10次测试,"Javascript测试参考"进行7次测试，"HTML动画测试参考"进行9次测试，测试，会在本页显示测试结果（为平均值）以及原始数据</b></p>
+        <p>浏览器页面加载测试参考：常规页面加载时间测试,主要文本和图片.<b>结果：时间越低越好,推荐本地测试或网络话较好的情况下测试</b></p>
+        <p>浏览器CSS渲染测试参考：利用CSS渲染基准测试.<b>结果：时间越短，成绩越好</b></p>
+        <p>Javascript测试参考:同过日常用的Javascript方法等进行测试.<b>结果：时间越短越好</b></p>
+        <p>HTML动画测试参考:通过DIV的移动来获每秒渲染帧数，<b>结果：帧数越高越好</b></p>
+        <p id="down" style="display: none"><a href="ui1.tar.gz">下载代码到本地进行测试</a></p>
+        <p>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </p>
+    </footer>
+    <script>
+        function goTest()
+        {
+            window.localStorage.setItem("autoTest", "1");
+            localStorage.setItem("load", "");
+            localStorage.setItem("cssTest", "");
+            localStorage.setItem("jsTest", "");
+            localStorage.setItem("aniTest", "");
+            localStorage.setItem("picaniTest", "");
+            document.location.href = "loadtest.html";
+        }
+        window.onload = function ()
+        {
+            var flag = window.localStorage.getItem("autoTest");
+            if (flag == "End")
+            {
+                //自动测试结束
+                //	localStorage.removeItem("autoTest");
+
+                document.getElementById("score").style.display = "block";
+                var loadTest = localStorage.getItem("load").split(";"),
+                    cssTest = localStorage.getItem("cssTest").split(";"),
+                    jsTest = localStorage.getItem("jsTest").split(";"),
+                    aniTest = localStorage.getItem("aniTest").split(";"),
+                    picaniTest = localStorage.getItem("picaniTest").split(";"),
+                    jpgTest = localStorage.getItem("pic_test_jpeg_result").split(";"),
+                    pngTest = localStorage.getItem("pic_test_png_result").split(";"),
+                    gifTest = localStorage.getItem("pic_test_gif_result").split(";"),
+                    //acid3Test=localStorage.getItem("acid3Test").split(";");
+
+                loadTest = loadTest.filter(function (e) { if (e === "") { return false; } return true; });
+                cssTest = cssTest.filter(function (e) { if (e === "") { return false; } return true; });
+                jsTest = jsTest.filter(function (e) { if (e === "") { return false; } return true; });
+                aniTest = aniTest.filter(function (e) { if (e === "") { return false; } return true; });
+                picaniTest = picaniTest.filter(function (e) { if (e === "") { return false; } return true; });
+                jpgTest = jpgTest.filter(function (e) { if (e === "") { return false; } return true; });
+                pngTest = pngTest.filter(function (e) { if (e === "") { return false; } return true; });
+                gifTest = gifTest.filter(function (e) { if (e === "") { return false; } return true; });
+                //acid3Test=acid3Test.filter(function(e){if(e===""){return false;}return true;});
+
+                document.getElementById("load").innerHTML = Math.ceil(eval(loadTest.join("+")) / loadTest.length) + "ms";
+                document.getElementById("cssTest").innerHTML = Math.ceil(eval(cssTest.join("+")) / cssTest.length) + "ms";;
+                document.getElementById("jsTest").innerHTML = Math.ceil(eval(jsTest.join("+")) / jsTest.length) + "ms";;
+                document.getElementById("aniTest").innerHTML = Math.ceil(eval(aniTest.join("+")) / aniTest.length) + "FPS";;
+                //document.getElementById("picaniTest").innerHTML = Math.ceil(eval(picaniTest.join("+")) / picaniTest.length) + "FPS";;
+                document.getElementById("jpgTest").innerHTML = (function ()
+                {
+                    console.log(jpgTest);
+                    var r = 0;
+                    for (var i = 0; i < jpgTest.length; i++)
+                    {
+                        r += eval(jpgTest[i])[2];
+                    }
+                    return r / 5;
+                })() + "ms";
+                document.getElementById("pngTest").innerHTML = (function ()
+                {
+                    console.log(pngTest);
+                    var r = 0;
+                    for (var i = 0; i < pngTest.length; i++)
+                    {
+                        r += eval(pngTest[i])[2];
+                    }
+                    return r / 5;
+                })() + "ms";
+                document.getElementById("gifTest").innerHTML = (function ()
+                {
+                    console.log(gifTest);
+                    var r = 0;
+                    for (var i = 0; i < gifTest.length; i++)
+                    {
+                        r += eval(gifTest[i])[2];
+                    }
+                    return r / 5;
+                })() + "ms";
+                //	document.getElementById("acid3Test").innerHTML=Math.ceil(eval(acid3Test.join("+"))/acid3Test.length);;
+
+                document.getElementById("dataload").innerHTML = loadTest.join(",");
+                document.getElementById("dataCssTest").innerHTML = cssTest.join(",");
+                document.getElementById("dataJsTest").innerHTML = jsTest.join(",");
+                document.getElementById("dataAniTest").innerHTML = aniTest.join(",");
+                //document.getElementById("picaniTest").innerHTML = picaniTest.join(",");
+                document.getElementById("dataJpgTest").innerHTML = (function ()
+                {
+                    var r = "";
+                    for (var i = 0; i < jpgTest.length; i++)
+                    {
+                        r += (r != "" ? "," : "") + eval(jpgTest[i])[2];
+                    }
+                    return r;
+                })();
+                document.getElementById("dataPngTest").innerHTML = (function ()
+                {
+                    var r = "";
+                    for (var i = 0; i < pngTest.length; i++)
+                    {
+                        r += (r != "" ? "," : "") + eval(pngTest[i])[2];
+                    }
+                    return r;
+                })();
+                document.getElementById("dataGifTest").innerHTML = (function ()
+                {
+                    var r = "";
+                    for (var i = 0; i < gifTest.length; i++)
+                    {
+                        r += (r != "" ? "," : "") + eval(gifTest[i])[2];
+                    }
+                    return r;
+                })();
+                //document.getElementById("dataAcid3Test").innerHTML=acid3Test.join(",");
+            }
+            if (navigator.userAgent.indexOf("STB") == -1)
+            {
+                document.getElementById("down").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

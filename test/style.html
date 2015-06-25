@@ -1,0 +1,221 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>其他兼容性测试</title>
+    <script src="javascript/jquery-2.0.0.min.js"></script>
+    <style>
+        div { }
+
+        .border { width: 500px; padding: 20px; line-height: 1.3em; border: orange 10px dashed; border-bottom: orange 10px double; }
+        .border_sample { }
+        .border_sample_radius { width: 500px; padding: 20px; background: url(pic/test_background.jpg); background-repeat: round; border: orange 10px double; border-bottom: orange 10px dashed; border-radius: 10px 30px 20px 40%; }
+        .border_sample_shadow { border-radius: 20px; box-shadow: 20px 20px 10px 2px #222; -webkit-box-shadow: 20px 20px 15px 10px #222; }
+        .border_sample_shadow_inset { border-radius: 20px; box-shadow: 20px 20px 10px 2px #AAA inset; -webkit-box-shadow: 20px 20px 15px 10px #AAA inset; }
+        .border_image_sample { border-radius: 20px; -webkit-border-image: url(pic/test_background.jpg) 20 20 stretch round; border-image: url(pic/test_background.jpg) 5 5 stretch round; }
+
+        .size { height: 180px; width: 500px; border: 10px solid green; }
+        .sizing1 { -webkit-box-sizing: content-box; }
+        .sizing2 { -webkit-box-sizing: border-box; }
+        /*.sizing3 { -webkit-box-sizing: padding-box; }*/
+
+        .transform { border: 10px solid pink; padding: 10px 10px 10px 10px; width: 500PX; height: 150PX; background-color: Orange; opacity: .5; }
+        .basic_transform { -webkit-transform: translate(0px,0px); }
+        .transformx { -webkit-transform: translateX(100px); }
+        .transformy { -webkit-transform: translateY(-100px); }
+        .transform_matrix { -webkit-transform: matrix(-0.8,-1.0,1,-0.8,1,-1); }
+        .transform_rotate { -webkit-transform: rotate(-45deg); }
+        .transform_scale { -webkit-transform: scale(.5,1.5); }
+        .transform_skew { -webkit-transform: skew(10deg,30deg); }
+
+        .background { width: 500px; height: 200px; position: relative; border: 10px dashed orange; padding: 10px; line-height: 1.3em; background: url(pic/test_background.jpg) no-repeat; color: #bbb; background-repeat: repeat; text-shadow: 1px 1px #222; }
+        .multBg { background: url(pic/test_background.jpg) repeat-x 200px 300px,url(pic/test_background.jpg) repeat-y 100% 100%, url(pic/test_background.jpg) no-repeat 0 0; color: White; height: 400px; }
+        .clip1 { background-clip: border-box; }
+        .clip2 { background-clip: PADDING-box; }
+        .clip3 { background-clip: content-box; }
+
+        .origin1 { background-origin: border-box; }
+        .origin2 { background-origin: PADDING-BOX; }
+        .origin3 { background-origin: content-BOX; }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="index" href="index.html">首页</a>
+        <h1>基准测试 v0.0.2</h1>
+    </header>
+    <div style="width: 600px; position: absolute; left: 50px;">
+        <h2>边框</h2>
+        <h3>最基本样式：</h3>
+        <div class="border border_sample">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+                <br />
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>圆角：</h3>
+        <br />
+        <div class="border border_sample_radius">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+                <br />
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>阴影</h3>
+        <br />
+        <div class="border border_sample_shadow">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+            <br />
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>内阴影</h3>
+        <br />
+        <div class="border border_sample_shadow_inset">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+            <br />
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>边框背景图</h3>
+        <br />
+        <div class="border border_image_sample">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+            <br />
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+
+        <hr />
+
+
+        <h2>-webkit-box-sizing属性设置height和width的设置值参考量</h2>
+        <br />
+        <br />
+
+        <h3>只包含内容，不包含边框和内边距的尺寸</h3>
+        <br />
+        <div class="size sizing1">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>包含内容和边框、内边距的尺寸</h3>
+        <br />
+        <div class="size sizing2">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <!--<br />
+        <br />
+        继承父元素的属性设置值<br />
+        <div class="size sizing3">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>-->
+        <hr />
+
+        <h2>转化</h2>
+        <br />
+        <br />
+
+        <h3>基本(-webkit-transform: translate(0px,0px);)</h3>
+        <br />
+        <div class="transform basic_transform">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>x轴( translateX(100px))</h3>
+        <br />
+        <div class="transform transformx">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>y轴(translateY(-100px))</h3>
+        <br />
+        <div class="transform transformy">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>matrix(matrix(-0.8,-1.0,1,-0.8,1,-1))</h3>
+        <br />
+        <div class="transform transform_matrix">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>rotate(rotate(-45deg))</h3>
+        <br />
+        <div class="transform transform_rotate">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>scale(scale(.5,1.5))</h3>
+        <br />
+        <div class="transform transform_scale">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+        <br />
+        <br />
+
+        <h3>skew(skew(10deg,30deg))</h3>
+        <br />
+        <div class="transform transform_skew">
+            The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。 The quick brown fox jumps over the lazy dog.那只敏捷的棕毛狐狸跃过那只懒狗。
+        </div>
+
+        <hr />
+
+
+        <h2>背景</h2>
+        <br />
+        <br />
+        <div class="background multBg">
+            背景是分3层显示，按照逗号顺序，前面的在最上层；第一层从坐标（200px,300px）开始显示，横轴重复；第二层，在最右侧开始显示，纵轴重复；第三层从左上角开始显示，不重复。
+
+        </div>
+        <br />
+        <div class="background clip1">
+            （background-clip: border-box;）背景在元素的边框、补白和内容区域都会显示，默认。
+        </div>
+        <br />
+        <div class="background clip2">
+            （background-clip: PADDING-box;）背景只在补白和内容区域显示
+        </div>
+        <br />
+        <div class="background clip3">
+            （background-clip: content-box;）背景只会在内容区域显示
+        </div>
+        <br />
+        <div class="background origin1">
+            指定背景开始定位/绘制区域。指定背景图片显示开始点为边框左上角（background-origin: content-box）padding: 10px;
+        </div>
+        <br />
+        <div class="background origin2">
+            指定背景开始定位/绘制区域。指定背景图片显示开始点为内容区域显示（background-origin: PADDING-BOX）padding: 10px;重复显示
+        </div>
+        <br />
+        <div class="background origin3">
+            指定背景开始定位/绘制区域。指定背景图片显示开始点为本处文字显示位置（内容区域）（background-origin: content-box）padding: 10px;
+        </div>
+    </div>
+    <div style="width: 600px; position: absolute; left: 650px; top: 95px; color: red; border-left: 5px solid #BBB;">
+        chrome标准参考
+        <img src="pic/css.png" />
+    </div>
+</body>
+</html>

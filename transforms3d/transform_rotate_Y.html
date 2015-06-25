@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS3 webkit私有属性">
+    <meta name="description" content="css属性">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0">
+    <link href="../css/base.css" type="text/css" rel="stylesheet">
+    <title>CSS3 transform属性</title>
+    <style>
+        section { display: block; zoom: 1; margin-top: 10px; color: rgb(61, 70, 75); font-size: 13px; }
+            section h2 { margin: 0px; padding: 0px 10px; font-size: 14px; background-color: rgb(200, 200, 200); }
+        .main { display: block; }
+            .main span { font-size: 1.2em; }
+            .main pre { padding: 10px; border: 1px #999 dashed; color: #666; font-size: 1.2em; resize: both; overflow: hidden; }
+        .stage { -webkit-perspective: 1000px; -webkit-transform-style: preserve-3d;   width: 100%; height: 400px; font-size: 1.2em; color: #FFF; }
+        .actor {backface-visibility:visible; opacity: .8; pointer-events: none; border: 1px solid red; width: 400px; height: 300px; line-height: 100px; text-align: center; background-color: #ff0; color: #00f; font-size: 26px; position: relative; -webkit-transform: rotateY(30deg);left: 400px; top: 50px; float: left; }
+        .td { vertical-align: text-top; padding: 5px 15px 5px 5px; background-color: rgb(239, 239, 239); border: 1px solid rgb(170, 170, 170); }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="index" href="../transformGuide.html">transform</a><h1>CSS3 transform属性</h1>
+    </header>
+    <div class="main">
+        <section>
+            <h2>取值：</h2>
+            <div>
+                <table class="dataintable" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px; border-collapse: collapse; border: 1px solid rgb(170, 170, 170); width: 606px; color: rgb(0, 0, 0); font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(249, 249, 249);">
+                    <tr>
+                        <th style="vertical-align: baseline; padding: 5px 15px 5px 5px; background-color: rgb(213, 213, 213); border: 1px solid rgb(170, 170, 170); text-align: left; width: 212px;">值</th>
+                        <th style="vertical-align: baseline; padding: 5px 15px 5px 5px; background-color: rgb(213, 213, 213); border: 1px solid rgb(170, 170, 170); text-align: left;">描述</th>
+                    </tr>
+                    <tr>
+                        <td class="td">none</td>
+                        <td class="td">定义不进行转换。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">matrix3d(<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>)</td>
+                        <td class="td">定义 3D 转换，使用 16 个值的 4x4 矩阵。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">translate3d(<i>x</i>,<i>y</i>,<i>z</i>)</td>
+                        <td class="td">定义 3D 转换。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">translateX(<i>x</i>)</td>
+                        <td class="td">定义转换，只是用 X 轴的值。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">translateY(<i>y</i>)</td>
+                        <td class="td">定义转换，只是用 Y 轴的值。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">translateZ(<i>z</i>)</td>
+                        <td class="td">定义 3D 转换，只是用 Z 轴的值。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">scale3d(<i>x</i>,<i>y</i>,<i>z</i>)</td>
+                        <td class="td">定义 3D 缩放转换。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">scaleX(<i>x</i>)</td>
+                        <td class="td">通过设置 X 轴的值来定义缩放转换。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">scaleY(<i>y</i>)</td>
+                        <td class="td">通过设置 Y 轴的值来定义缩放转换。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">scaleZ(<i>z</i>)</td>
+                        <td class="td">通过设置 Z 轴的值来定义 3D 缩放转换。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">rotate3d(<i>x</i>,<i>y</i>,<i>z</i>,<i>angle</i>)</td>
+                        <td class="td">定义 3D 旋转。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">rotateX(<i>angle</i>)</td>
+                        <td class="td">定义沿着 X 轴的 3D 旋转。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">rotateY(<i>angle</i>)</td>
+                        <td class="td">定义沿着 Y 轴的 3D 旋转。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">rotateZ(<i>angle</i>)</td>
+                        <td class="td">定义沿着 Z 轴的 3D 旋转。</td>
+                    </tr>
+                    <tr>
+                        <td class="td">perspective(<i>n</i>)</td>
+                        <td class="td">为 3D 转换元素定义透视视图。</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h2 class="tit" style="">说明：</h2>
+            <div class="cont" style="padding: 10px; color: rgb(102, 102, 102);">
+                <strong>设置或检索对象的转换。</strong><ul style="margin: 0px; padding: 0px; list-style: none;">
+                    <li>对应的脚本特性为<strong>transform</strong>。</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>实例：</h2>
+            <pre contenteditable="false">-webkit-transform: rotateY(<span class="syncvalues">30</span>deg);</pre>
+        </section>
+        <section>
+            <h2>操作：</h2>
+            <div style="text-align: center;">
+                <input id="steeringWheel" type="range" max="360" min="-360" step="1" value="30" style="width: 100%" />
+                <span>旋转30度</span>
+            </div>
+        </section>
+        <section>
+            <h2>效果预览：</h2>
+            <div class="stage">
+                <div class="actor">
+                    旋转<span class="syncvalues">30</span>度
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+<script src="../test/javascript/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#steeringWheel").change(function ()
+        {
+            $(this).next("span").html("旋转" + this.value + "度");
+            $(".actor").css({ "-webkit-transform": "rotateY(" + this.value + "deg)" });
+            $(".syncvalues").html(this.value);
+        });
+    });
+</script>
+</html>

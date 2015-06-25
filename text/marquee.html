@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>-webkit-marquee 滚动字幕/跑马灯</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+}
+#marqueeDiv
+{
+	width:150px;
+	height:200px;
+	font-size:1.2em;
+	border:1px #666666 dotted;
+/*	text-align:center;*/
+	overflow:-webkit-marquee;
+	-webkit-marquee:up 1px infinite 10ms  scroll; 
+	
+}
+#selDir option:first-of-type
+{
+	color:#F00;
+}
+#selDir option:first-of-type
+{
+	color:#F00;
+	font-weight:bold;
+}
+input::-webkit-input-placeholder 
+{
+	color:#69F;
+}
+
+</style>
+</head>
+<body>
+<header><a class="index" href="../TextGuide.html">TEXT</a><h1>-webkit-marquee 滚动字幕/跑马灯
+</h1></header>
+
+<div class="main">
+	<h2>语法：</h2>
+    <p>-webkit-marquee: direction increment repetition style speed;</p>
+    <h2>说明</h2>
+    <p>direction(方向)</p>
+      
+    <p>increment(移动距离的增量、步长)</p>
+    <p>repetition(循环的次数)</p>
+    <p>style(字幕运动的风格)</p>
+    <p>speed(滚动或滑动的速度)</p>
+    
+    
+    <h3>子属性</h3>
+        <p>-webkit-marquee-direction 方向----[ ahead(从下到上)/auto(默认方向)/backwards(从右到左)/down(从上到下)/forwards(从左到右)/left(从右到左) reverse(从上到下)/right(从左到右)/up(从下到上)]</p>
+        <p>-webkit-marquee-increment 移动距离的增量、步长-----*px</p>
+        <p>-webkit-marquee-repetition 循环的次数----[1-n/infinite(无穷次)]</p>
+        <p>-webkit-marquee-speed 滚动或滑动的速度----[fast/normal/slow/*ms]</p>
+       <p> -webkit-marquee-style 字幕运动的风格---[alternate/none/scroll/slide]</p>
+   <h2>实例</h2>
+    <pre contentEditable=false>  
+    	overflow:-webkit-marquee;
+	-webkit-marquee:up  1px infinite 90ms  scroll; 
+    </pre>
+    <h2>效果预览</h2>
+    <div class="outEffect">
+		<div>
+        	<div id="marqueeDiv">marqueeg滚动<br />marqueeg滚动</div>      
+            <select title="direction(方向控制)" id="selDir">
+            	<option value="">direction</option>
+                <option value="ahead">ahead</option>
+                <option value="auto">auto</option>
+                <option value="backwards">backwards</option>
+                <option value="down">down</option>
+                <option value="forwards">forwards</option>
+                <option value="left">left</option>
+                <option value="reverse">reverse</option>
+                <option value="right">right</option>
+                <option value="up" selected>up</option>
+            </select>
+			<input id="increment" data-id="webkitMarqueeIncrement" value="1px"  type="text" placeholder="increment px(移动步长)" autocomplete="on" size="15" />
+            <input id="repetition" data-id="webkitMarqueeRepetition"  value="infinite"   type="text" placeholder="repetition(循环次数)" autocomplete="on"   size="15" />
+            <input id="speed" data-id="webkitMarqueeSpeed"  value="90ms"   type="text" placeholder="speed ms(滚动或滑动的速度)" autocomplete="on"  size="15" />
+            <input id="style"  data-id="webkitMarqueeStyle"   value="scroll"   type="text" placeholder="style(字幕运动的风格)" autocomplete="on"  size="15" />
+         </div>
+    </div>
+</div>
+<script type="text/javascript">
+window.addEventListener("load",function(){
+	var input=document.getElementsByTagName("input");
+	var selDir=document.getElementById("selDir");
+	var demo=document.getElementById("marqueeDiv");
+	selDir.onchange=function()
+	{
+		demo.style.webkitMarqueeDirection=this.value; 
+	}
+	for(var i in input)
+	{
+		input[i].onchange=function()
+		{
+			demo.style[this.getAttribute("data-id")]=this.value; 
+		}
+	}
+
+},false)
+</script>
+
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

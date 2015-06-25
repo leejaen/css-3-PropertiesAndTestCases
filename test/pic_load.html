@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>其他兼容性测试</title>
+    <script src="javascript/jquery-2.0.0.min.js"></script>
+    <style>
+        img { float: left; opacity: .5; }
+    </style>
+    <script>
+        window.localStorage.pic_test_jpeg_type = "manual";
+        window.localStorage.pic_test_jpeg_times = 5;
+        window.localStorage.pic_test_jpeg_result = "";
+        window.localStorage.pic_test_png_type = "manual";
+        window.localStorage.pic_test_png_times = 5;
+        window.localStorage.pic_test_png_result = "";
+        window.localStorage.pic_test_gif_type = "manual";
+        window.localStorage.pic_test_gif_times = 5;
+        window.localStorage.pic_test_gif_result = "";
+    </script>
+</head>
+<body>
+    <header>
+        <a class="index" href="index.html">首页</a>
+        <h1>图片加载测试</h1>
+    </header>
+    <div>
+        <a href="pic_load_jpeg.html">jpeg图片加载测试</a><br />
+        <a href="pic_load_png.html">png图片加载测试</a><br />
+        <a href="pic_load_gif.html">gif图片加载测试</a>
+    </div>
+</body>
+</html>

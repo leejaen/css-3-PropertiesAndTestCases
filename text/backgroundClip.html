@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS3 webkit私有属性">
+<meta name="description" content="css属性">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<link href="../css/base.css" type="text/css" rel="stylesheet"> 
+<title>半透渐变字体实现)-webkit-background-clip</title>
+<style>
+.main
+{
+	display:block;
+}
+.main span
+{
+	font-size:1.2em;
+
+}
+.main pre
+{
+	padding:10px;
+	border:1px #999 dashed;
+	color:#666;
+	font-size:1.2em;
+	resize: both;
+	overflow:hidden;
+
+
+}
+
+.outEffect
+{
+	background-color:#333;
+	width:100%;
+	font-size:3.4em;
+	color:#FFF;
+
+}
+.outEffect div:first-of-type
+{
+	background:-webkit-linear-gradient(top,#ff0,transparent);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color: transparent;
+	
+	/*	background-image:url(img/clip_mask.png); /*白色为不透明区域*/
+	
+}
+
+
+</style>
+</head>
+<body>
+<header><a class="index" href="../TextGuide.html">TEXT</a><h1>半透渐变字体实现-webkit-background-clip
+</h1></header>
+<div class="main">
+	<h2>语法：</h2>
+    <p>background-clip ： border-box || padding-box || content-box || text /*只有webkit内核支持text的剪切模式*/</p>
+    <h3>子属性</h3>
+    <p>border-box:此值为默认值，背景从border区域向外裁剪，也就是超出部分将被裁剪掉；</p>
+    <p>padding-box：背景从padding区域向外裁剪，超过padding区域的背景将被裁剪掉；</p>
+	<p>context-box：背景从content区域向外裁剪，超过context区域的背景将被裁剪掉；</p>
+
+   <h2>实例</h2>
+    <pre contentEditable=false>
+	background:-webkit-linear-gradient(top,#ff0,transparent);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color: transparent;
+    </pre>
+    <h2>效果预览</h2>
+    <div class="outEffect">
+    <div id="outEffectDiv">半透渐变字体实现</div>	
+
+    </div>
+    <p>换背景<input id="colorBg" type="color"></p>
+    <p>换字体颜色<input id="colorText" type="color"></p>
+
+</div>
+
+<script type="text/javascript">
+window.addEventListener("load",function()
+{
+	var color=document.getElementById("colorBg");
+	color.onchange=function()
+	{
+		var div=document.getElementById("outEffectDiv").parentNode;
+		console.log(div);
+		div.style.backgroundColor=this.value;
+	};
+	
+	
+	var colorText=document.getElementById("colorText");
+	colorText.onchange=function()
+	{
+		var div=document.getElementById("outEffectDiv");
+		div.style.background="-webkit-linear-gradient(top,"+this.value+",transparent)";
+		div.style.webkitBackgroundClip="text";
+	};
+},false)
+</script>
+<footer>Copyright &copy; 2013 - 2015 Inspur. All Rights Reserved </footer>
+</body>
+</html>

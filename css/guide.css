@@ -1,0 +1,130 @@
+@charset "utf-8";
+body
+{
+	margin:0px;
+	padding:0px;
+	font-size:62.5%;
+	background-color:#F2F2F2;
+	/*避免重力感应时文字随分辨率增大而增大*/
+	-webkit-text-size-adjust: none;
+}
+header
+{
+	position:fixed;
+	width:100%;
+	left:0px;
+	top:0px;
+	text-align:center;
+	background-color:#eee;
+	border:solid 1px #aaa;
+	border-width:0 0 1px 0px;
+}
+header .index
+{
+	position:absolute;
+	left:20px;
+	top:10px;
+	display:inline-block;
+	border:1px solid #999;
+	border-radius:4px;
+	width:40px;
+	height:20px;
+	line-height:20px;
+	background-color:#bbb;
+	color:#fff;
+}
+header h1
+{
+	font-size:1.8em;
+	text-shadow:#333 2px 0px 5px , #333 -2px 0px 5px;
+	color:#FFF
+}
+.nav
+{
+	border:1px solid #999;
+	border-radius:4px;
+	margin:58px 8px 0px 8px;;
+
+}
+.nav li
+{
+	list-style:none;
+	height:45px;
+	padding-left:32px;
+	line-height:45px;
+	border:1px solid #999;
+	border-width:0px 0px 1px 0px;
+
+	font-size:1.4em;
+	font-weight:bold;
+	text-shadow:#eee 1px 0px 4px ;
+	color:#666;
+}
+.nav li a
+{
+	display:block;
+
+}
+.design
+{
+	background-image:url(../img/icon.png);
+	background-repeat:no-repeat;
+	background-position:right -160px;
+}
+.istbOK
+{
+	background-image:url(../img/icon.png);
+	background-repeat:no-repeat;
+	background-position:0px -42px;
+}
+.istbwrong
+{
+	background-image:url(../img/icon.png);
+	background-repeat:no-repeat;
+	background-position:0px -0px;
+}
+.istbquestion
+{
+	background-image:url(../img/icon.png);
+	background-repeat:no-repeat;
+	background-position:0px -121px;
+}
+.nav li:last-of-type
+{
+	border:none;
+}
+
+
+a
+{
+	text-decoration:none;
+	color:#333;
+	-webkit-transition:all 0.3s  linear;
+}
+.nav  a:hover,.nav a:focus
+{
+	color:#F00;
+	outline:none;
+	padding:0 10px;
+	text-decoration:underline;
+	
+}
+
+header  a:hover,header a:focus
+{
+	color:#f00;
+	outline:none;
+	text-decoration:none;
+	background-color:#FFF;
+	
+}
+footer
+{	color:#3C790A;
+	margin:18px 0 60px 8px;;
+	font-size:1.2em;
+}
+footer a
+{
+	text-decoration:underline;
+	color:#333;
+}
